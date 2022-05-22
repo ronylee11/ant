@@ -1,53 +1,35 @@
 # What is this?
 
-My Xfce+bspwm Build using xfce + plank + bspwm + sxhkd + rofi + picom <br />
-aka. my "moderately" customized Xfce 
+My Alacritty+Neovim+Tmux Build that substantially increases coding/typing productivity<br />
+aka. my "workspace" setup
 
 # Screenshot
 
-Picture of four xfce4-terminal instances separately running ncmpcpp, htop, wttr, cava
+Picture of 3 alacritty nvim instances, one running terminal using tmux
 ![Alt text](./showcase.png)
 
 # Usage
 
-Most keybindings are heavily affected by my dwm habits:<br />
-<br />
-Launch Terminal - Super + Shift + Enter <br />
-Launch Application(rofi) - Super + P <br />
-Focus Next Window - Super + K <br />
-Focus Previous Window - Super + J <br />
-Close Window - Super + Shift + C <br />
-Restart/Exit bspwm - Super + Shift + Q <br />
-Restart sxhkd - Super + Escape <br />
-<br />
-Switching Workspaces: <br />
-Workspace 1-5 - Super + 1-5 <br />
-Workspace 6-10 - Super + F1-F5 <br />
-Moving Window Between Workspaces - Super + Shift + 1-5/F1-F5<br/>
-<br />
-Switching Layouts: <br />
-Default to Tiling Layout <br />
-Toggle Monocle Layout - Super + M <br />
-Toggle Floating Layout - Super + F <br /> 
+Tmux config from Fatih Arslan
+    create a tab: ctrl-f c
+    close a tab: ctrl-f &
+    close a pane: ctrl-f x (this also closes the tab if there is a single pane)
+    create vertical pane: ctrl-f v
+    create horizontal pane: ctrl-f s
+    move between panes: ctrl-f h, ctrl-f j, ctrl-f k and ctrl-f l
+    resize panes: ctrl-f H, ctrl-f J, ctrl-f K and ctrl-f L
+    jump to specific tab: ctrl-f <number>, i.e: ctrl-f 3
+
 
 # Repositories
 
-- Github - https://github.com/ronylee11/xfce-bspwm
-- Gitlab - https://gitlab.com/ronylee11/xfce-bspwm
+- Github - https://github.com/ronylee11/ant
+- Gitlab - https://gitlab.com/ronylee11/ant
 
 # Useful Resources
-- Inspiration from r/unixporn - https://www.reddit.com/r/unixporn/comments/kee3y9/xfce4bspwm_my_daily_set_up/
-- Basic xfce+bspwm+sxhkd setup - https://github.com/bgdawes/bspwm-xfce-dotfiles/wiki#deactivate-xfwm4
-- bspwm+sxhkd example - https://wiki.archlinux.org/title/bspwm
-- picom example - https://wiki.archlinux.org/title/Picom
-- rofi (dmenu alternative) - https://github.com/davatorium/rofi
-- rofi theme - https://github.com/dctxmei/rofi-themes
-- mouse & touchpad - https://wiki.archlinux.org/title/Mouse_acceleration
-- fcitx5 (multi-language keyboard layouts) - https://wiki.archlinux.org/title/Fcitx5
-- fcitx5 Nord theme - https://github.com/tonyfettes/fcitx5-nord
-- bluetoothctl commands (bluetooth cli solution) - https://linuxcommandlibrary.com/man/bluetoothctl
-- screendimmer (dimmer screen) - https://github.com/Lawrence-Chiappelli/screendimmer
-- youtube-dl (youtube videos downloader) - https://wiki.archlinux.org/title/Youtube-dl
-- spotdl - https://github.com/spotDL/spotify-downloader
-- ncmpcpp (frontend for local music player) - https://wiki.archlinux.org/title/ncmpcpp
-- mpd (backend for local music player) - https://wiki.archlinux.org/title/Music_Player_Daemon
+- Vim Tutorial - https://www.youtube.com/watch?v=H3o4l4GVLW0&list=PLm323Lc7iSW_wuxqmKx_xxNtJC_hJbQ7R
+- How to add Vim Plugins - https://www.linuxfordevices.com/tutorials/linux/vim-plug-install-plugins
+- Lazygit - https://github.com/jesseduffield/lazygit
+- Ben Awad's Vim configure tutorial - https://www.youtube.com/watch?v=gnupOrSEikQ
+- benbrastmckie's ANT build - https://www.youtube.com/watch?v=Xvu1IKEpO0M&t=226s
+- Fatih Arslan's article about Integrating Alacritty with Tmux - https://arslan.io/2018/02/05/gpu-accelerated-terminal-alacritty/
