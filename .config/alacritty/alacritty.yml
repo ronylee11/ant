@@ -30,6 +30,9 @@ colors:
     cyan: "#56b6c2"
     white: "#ECEFF4"
 
+# True Color
+env:
+  TERM: xterm-256color
 
 # Font configuration
 font:
