@@ -288,12 +288,12 @@ shell:
     - { key: Minus, mods: Control, action: DecreaseFontSize }
     - { key: N, mods: Control, action: SpawnNewInstance }
   # Tmux Shortcuts
-    - { key: W, mods: Alt, chars: "\x06\x77" }
-      #- { key: W, mods: Control, chars: "\x06\x77" }
-      #- { key: W, mods: Control, chars: "\x06\x77" }
-      #- { key: W, mods: Control, chars: "\x06\x77" }
-      #- { key: W, mods: Control, chars: "\x06\x77" }
-      #- { key: W, mods: Control, chars: "\x06\x77" }
+  #- { key: W, mods: Alt, chars: "\x06\x77" }
+  #- { key: W, mods: Alt, chars: "\x06\x77" }
+  #- { key: W, mods: Alt, chars: "\x06\x77" }
+  #- { key: W, mods: Alt, chars: "\x06\x77" }
+  #- { key: W, mods: Alt, chars: "\x06\x77" }
+  #- { key: W, mods: Alt, chars: "\x06\x77" }
 
 
 # Key bindings

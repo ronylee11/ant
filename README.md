@@ -22,6 +22,12 @@ Tmux config from Fatih Arslan
     jump to specific tab: ctrl-f <number>, i.e: ctrl-f 3
 ```
 
+# Plugins
+
+- Gruvbox Theme - https://github.com/morhetz/gruvbox
+- Coc.nvim - https://github.com/neoclide/coc.nvim
+- Nerdtree - https://github.com/preservim/nerdtree
+
 # Repositories
 
 - Github - https://github.com/ronylee11/ant
