@@ -11,6 +11,7 @@ Picture of 3 alacritty nvim instances, one running terminal using tmux
 # Usage
 
 Tmux config from Fatih Arslan
+```
     create a tab: ctrl-f c
     close a tab: ctrl-f &
     close a pane: ctrl-f x (this also closes the tab if there is a single pane)
@@ -19,7 +20,7 @@ Tmux config from Fatih Arslan
     move between panes: ctrl-f h, ctrl-f j, ctrl-f k and ctrl-f l
     resize panes: ctrl-f H, ctrl-f J, ctrl-f K and ctrl-f L
     jump to specific tab: ctrl-f <number>, i.e: ctrl-f 3
-
+```
 
 # Repositories
 
