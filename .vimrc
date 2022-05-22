@@ -1,284 +1,195 @@
-" https://gist.github.com/miguelgrinberg/527bb5a400791f89b3c4da4bd61222e4
-" plugins
-let need_to_install_plugins = 0
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-    let need_to_install_plugins = 1
-endif
-
 call plug#begin()
-" Sensuble defaults
-Plug 'tpope/vim-sensible'
 
-" File browser with git indicators
-Plug 'preservim/nerdtree'
-Plug 'vim-scripts/The-NERD-tree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Nerdtree is only loaded when NERDToggle command is pressed
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Tabs
-Plug 'jistr/vim-nerdtree-tabs'
-
-" git indicator in editor
-Plug 'airblade/vim-gitgutter'
-
-" Status bar
-Plug 'itchyny/lightline.vim'
-
-" Nord theme
-Plug 'arcticicestudio/nord-vim'
-
-" Tabs
-Plug 'ap/vim-buftabline'
-
-" Telescope file finder / picker
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-" neovim language things
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neovim/nvim-lspconfig'
-
-" Nicer LSP UI
-Plug 'glepnir/lspsaga.nvim'
 call plug#end()
 
-filetype plugin indent on
-syntax on
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark    " Setting dark mode
 
-if need_to_install_plugins == 1
-    echo "Installing plugins..."
-    silent! PlugInstall
-    echo "Done!"
-    q
-endif
-
-" gfiles shortcut
-nnoremap <C-f> <cmd>Telescope find_files<cr>
-nnoremap <C-g> <cmd>Telescope git_files<cr>
-
-" always show the status bar
-set laststatus=2
-
-" enable 256 colors
-set t_Co=256
-set t_ut=
-
-" turn on line numbering
 set number
 
-" sane text files
-set fileformat=unix
+"Use 25-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
 set encoding=utf-8
-set fileencoding=utf-8
 
-" sane editing
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set colorcolumn=80
-set viminfo='25,\"50,n~/.viminfo
-set tw=79
-set autoindent
-set smartindent
+" TextEdit might fail if hidden is not set.
+set hidden
 
-" word movement
-imap <S-Left> <Esc>bi
-nmap <S-Left> b
-imap <S-Right> <Esc><Right>wi
-nmap <S-Right> w
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
 
-" indent/unindent with tab/shift-tab
-nmap <Tab> >>
-imap <S-Tab> <Esc><<i
-nmap <S-tab> <<
+" Give more space for displaying messages.
+set cmdheight=2
 
-" mouse
-set mouse=a
-let g:is_mouse_enabled = 1
-noremap <silent> <Leader>m :call ToggleMouse()<CR>
-function ToggleMouse()
-    if g:is_mouse_enabled == 1
-        echo "Mouse OFF"
-        set mouse=
-        let g:is_mouse_enabled = 0
-    else
-        echo "Mouse ON"
-        set mouse=a
-        let g:is_mouse_enabled = 1
-    endif
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" color scheme
-syntax on
-colorscheme nord
-filetype on
-filetype plugin indent on
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-" lightline
-set noshowmode
-let g:lightline = { 'colorscheme': 'nord' }
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" code folding
-"set foldmethod=indent
-"set foldlevel=99
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" wrap toggle
-setlocal nowrap
-noremap <silent> <Leader>w :call ToggleWrap()<CR>
-function ToggleWrap()
-    if &wrap
-        echo "Wrap OFF"
-        setlocal nowrap
-        set virtualedit=all
-        silent! nunmap <buffer> <Up>
-        silent! nunmap <buffer> <Down>
-        silent! nunmap <buffer> <Home>
-        silent! nunmap <buffer> <End>
-        silent! iunmap <buffer> <Up>
-        silent! iunmap <buffer> <Down>
-        silent! iunmap <buffer> <Home>
-        silent! iunmap <buffer> <End>
-    else
-        echo "Wrap ON"
-        setlocal wrap linebreak nolist
-        set virtualedit=
-        setlocal display+=lastline
-        noremap  <buffer> <silent> <Up>   gk
-        noremap  <buffer> <silent> <Down> gj
-        noremap  <buffer> <silent> <Home> g<Home>
-        noremap  <buffer> <silent> <End>  g<End>
-        inoremap <buffer> <silent> <Up>   <C-o>gk
-        inoremap <buffer> <silent> <Down> <C-o>gj
-        inoremap <buffer> <silent> <Home> <C-o>g<Home>
-        inoremap <buffer> <silent> <End>  <C-o>g<End>
-    endif
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
 endfunction
 
-" move through split windows
-nmap <leader><Up> :wincmd k<CR>
-nmap <leader><Down> :wincmd j<CR>
-nmap <leader><Left> :wincmd h<CR>
-nmap <leader><Right> :wincmd l<CR>
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" move through buffers
-nmap <leader>[ :bp!<CR>
-nmap <leader>] :bn!<CR>
-nmap <leader>x :bd<CR>
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 
-" restore place in file from previous session
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
-" tag list
-map <leader>t :TagbarToggle<CR>
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
-" copy, cut and paste
-vmap <C-c> "+y
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" disable autoindent when pasting text
-" source: https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
 
-function! XTermPasteBegin()
-    set pastetoggle=<Esc>[201~
-    set paste
-    return ""
-endfunction
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
 
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
-" file browser
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let NERDTreeMinimalUI = 1
-let g:nerdtree_open = 0
-map <leader>t :call NERDTreeToggle()<CR>
-function NERDTreeToggle()
-    NERDTreeTabsToggle
-    if g:nerdtree_open == 1
-        let g:nerdtree_open = 0
-    else
-        let g:nerdtree_open = 1
-        wincmd p
-    endif
-endfunction
-let NERDTreeShowHidden=1
-" NERDTree setting defaults to work around http://github.com/scrooloose/nerdtree/issues/489
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-let g:NERDTreeGlyphReadOnly = "RO"
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
-" run chezmoi apply whenever you save a dotfile #
-autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path %
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
-" Hightlight on yank
-" From https://neovim.io/news/2021/07
-au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=150, on_visual=true}
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
 
-" Set up language servers
-lua << EOF
-require'lspconfig'.pyright.setup{}
-EOF
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" Nicer LSP UI
-lua << EOF
-local saga = require 'lspsaga'
-EOF
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" Configure language server
-" https://github.com/neovim/nvim-lspconfig#keybindings-and-completion
-lua << EOF
-local nvim_lsp = require('lspconfig')
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
-end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "pyright" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
-EOF
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
