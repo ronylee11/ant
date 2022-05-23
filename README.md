@@ -36,6 +36,9 @@ Neovim config
 		Toggle Terminal - Alt + Escape
 		Terminal Normal Mode - Escape + Escape
 		Terminal Insert Mode - I
+	Vim-Tmux Navigator:
+		Switch Focus to Left - Ctrl + H
+		Switch Focus to Right - Ctrl + L
 
 ```
 

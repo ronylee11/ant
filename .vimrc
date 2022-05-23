@@ -8,7 +8,8 @@ Plug 'voldikss/vim-floaterm',
 Plug 'morhetz/gruvbox',
 Plug 'vim-airline/vim-airline',
 Plug 'vim-airline/vim-airline-themes',
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'HerringtonDarkholme/yats.vim', " TS Syntax
+Plug 'christoomey/vim-tmux-navigator', " Navigate between tree and file
 
 call plug#end()
 
