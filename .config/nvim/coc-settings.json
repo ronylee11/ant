@@ -28,17 +28,14 @@
     "typescriptreact",
     "typescript.tsx",
     "html",
-    "json",
-    "python"
+    "json"
   ],
-  "coc.preferences.hoverTarget": "float",
   // snippets
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
   // explorer
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
-  "explorer.icon.enableNerdFont": true,
   "explorer.icon.source": "vim-devicons",
   "explorer.keyMappings.global": {
     "<cr>": ["expandable?", "expand", "open"],
@@ -51,7 +48,8 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     }
-  }
+  },
+  "sh.enable": false
   // TODO language servers
   // TODO g:coc_global_extensions
   // TODO b:coc_suggest_disable=1 GOYO

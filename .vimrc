@@ -1,15 +1,22 @@
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'},
-Plug 'scrooloose/nerdtree', " Nerdtree is only loaded when NERDToggle command is pressed
-Plug 'Xuyuanp/nerdtree-git-plugin',
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight',
-Plug 'voldikss/vim-floaterm',
-Plug 'morhetz/gruvbox',
-Plug 'vim-airline/vim-airline',
-Plug 'vim-airline/vim-airline-themes',
-Plug 'HerringtonDarkholme/yats.vim', " TS Syntax
-Plug 'christoomey/vim-tmux-navigator', " Navigate between tree and file
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
+Plug 'preservim/nerdtree' " Nerdtree the file system tree explorer
+Plug 'Xuyuanp/nerdtree-git-plugin' " Nerdtree Modified
+Plug 'ryanoasis/vim-devicons' " Nerdtree icon
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree Syntax Highlight 
+Plug 'PhilRunninger/nerdtree-visual-selection' " Nerdtree Move,Delete,Copy,Open
+Plug 'voldikss/vim-floaterm' " Floating Terminal
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlight
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
+Plug 'preservim/nerdcommenter' " Comment Line
+Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
+" Themes
+Plug 'morhetz/gruvbox'
+"Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -22,6 +29,10 @@ nmap <A-Esc> :FloatermToggle<CR>
 tnoremap <esc><esc> <c-\><c-n>
 map <C-Right> :tabn<cr>
 map <C-Left> :tabp<cr>
+nmap <C-_> <leader>c<Space>
+vmap <C-_> <leader>c<Space>
+
+
 " You might have to force true color when using regular vim inside tmux as the
 " colorscheme can appear to be grayscale with "termguicolors" option enabled.
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
@@ -32,6 +43,7 @@ endif
 syntax on
 set termguicolors
 colorscheme gruvbox
+"colorscheme catppuccin
 let g:airline_theme='onedark'
 
 
@@ -55,7 +67,10 @@ endif
 
 " NERDTree config
 let g:NERDTreeGitStatusWithFlags = 1
-let g:NERDTreeIgnore = ['^node_modules$']
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
 function! IsNERDTreeOpen()        

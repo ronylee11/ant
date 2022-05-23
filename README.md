@@ -26,12 +26,18 @@ Tmux config from Fatih Arslan
 Neovim config
 
 ```
+	Coc.nvim:
+		Show definition of current word - Shift + K
 	NERDTree:
 		Show Hidden Files - Shift + B
 		Toggle Tree - Ctrl + B
 		Switch to Next Opened File - Ctrl + RightArrow
 		Switch to Previous Opened File - Ctrl + LeftArrow
 		Toggle Focus to Tree - Ctrl + W + W
+		Open File in New Tab - T
+		Open File in Horizontal Split - I
+		Open File in Vertical Split - S
+		Move/Rename File - M
 	Floaterm:
 		Toggle Terminal - Alt + Escape
 		Terminal Normal Mode - Escape + Escape
@@ -39,6 +45,12 @@ Neovim config
 	Vim-Tmux Navigator:
 		Switch Focus to Left - Ctrl + H
 		Switch Focus to Right - Ctrl + L
+		Switch Focus to Top - Ctrl + K
+		Switch Focus to Bottom - Ctrl + J
+	NERDcommenter:
+		Comment/Uncomment Line - Ctrl + /
+		Comment/Uncomment Multiple Line - (Highlight in Visual Mode) and Ctrl + /
+
 
 ```
 
@@ -47,11 +59,17 @@ Neovim config
 - Coc.nvim - https://github.com/neoclide/coc.nvim
 - Nerdtree - https://github.com/preservim/nerdtree
 - Nerdtree Git Plugin - https://github.com/Xuyuanp/nerdtree-git-plugin
+- Nerdtree Devicons - https://github.com/ryanoasis/vim-devicons
 - Nerdtree Syntax Highlight - https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-- Vim-Floaterm - https://github.com/voldikss/vim-floaterm
+- Nerdtree Visual Selection - https://github.com/PhilRunninger/nerdtree-visual-selection
+- Floaterm - https://github.com/voldikss/vim-floaterm
 - Gruvbox Theme - https://github.com/morhetz/gruvbox
 - Airline - https://github.com/vim-airline/vim-airline
 - Airline Theme - https://github.com/vim-airline/vim-airline-themes#vim-airline-themes
+- Yats TS Syntax - https://github.com/HerringtonDarkholme/yats.vim
+- Vim-Tmux Navigator - https://github.com/christoomey/vim-tmux-navigator
+- Nerdcommenter - https://github.com/preservim/nerdcommenter
+- Treesitter - https://github.com/nvim-treesitter/nvim-treesitter
 
 # Repositories
 
@@ -69,3 +87,4 @@ Neovim config
 - ANT True Color issue - https://gist.github.com/andersevenrud/015e61af2fd264371032763d4ed965b6
 - NERDTree Keybind - https://vi.stackexchange.com/questions/9967/how-do-i-open-and-close-nerdtree-toggle-nerdtree-view-using-a-single-keystroke
 - Floaterm Keybind - https://github.com/vim/vim/issues/2216
+- Bind Ctrl+/ - https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
