@@ -39,12 +39,14 @@ Neovim config
 
 # Plugins
 
-- Gruvbox Theme - https://github.com/morhetz/gruvbox
 - Coc.nvim - https://github.com/neoclide/coc.nvim
 - Nerdtree - https://github.com/preservim/nerdtree
 - Nerdtree Git Plugin - https://github.com/Xuyuanp/nerdtree-git-plugin
 - Nerdtree Syntax Highlight - https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 - Vim-Floaterm - https://github.com/voldikss/vim-floaterm
+- Gruvbox Theme - https://github.com/morhetz/gruvbox
+- Airline - https://github.com/vim-airline/vim-airline
+- Airline Theme - https://github.com/vim-airline/vim-airline-themes#vim-airline-themes
 
 # Repositories
 
