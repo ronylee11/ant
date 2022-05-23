@@ -27,13 +27,15 @@ Neovim config
 
 ```
 	NERDTree:
-		Show Hidden Files - Shift + i
-		Toggle Tree - Ctrl + b
+		Show Hidden Files - Shift + B
+		Toggle Tree - Ctrl + B
 		Switch to Next Opened File - Ctrl + RightArrow
 		Switch to Previous Opened File - Ctrl + LeftArrow
+		Toggle Focus to Tree - Ctrl + W + W
 	Floaterm:
 		Toggle Terminal - Alt + Escape
-		Exit Terminal Edit Mode - Escape + Escape
+		Terminal Normal Mode - Escape + Escape
+		Terminal Insert Mode - I
 
 ```
 
