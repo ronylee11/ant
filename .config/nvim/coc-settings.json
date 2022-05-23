@@ -29,7 +29,6 @@
     "typescript.tsx",
     "html",
     "json",
-    "bash",
     "python"
   ],
   "coc.preferences.hoverTarget": "float",

@@ -1,11 +1,13 @@
 call plug#begin()
 
-Plug 'morhetz/gruvbox',
+Plug 'neoclide/coc.nvim', {'branch': 'release'},
 Plug 'scrooloose/nerdtree', " Nerdtree is only loaded when NERDToggle command is pressed
 Plug 'Xuyuanp/nerdtree-git-plugin',
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight',
-Plug 'neoclide/coc.nvim', {'branch': 'release'},
-Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/vim-floaterm',
+Plug 'morhetz/gruvbox',
+Plug 'vim-airline/vim-airline',
+Plug 'vim-airline/vim-airline-themes',
 
 call plug#end()
 
@@ -28,16 +30,10 @@ endif
 syntax on
 set termguicolors
 colorscheme gruvbox
+let g:airline_theme='onedark'
 
-" Start NERDTree and put the cursor back in the other window.
-" autocmd VimEnter * NERDTree | wincmd p
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" Open the existing NERDTree on each new tab.
-" autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-
+" True Color config
 "Use 25-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -54,14 +50,43 @@ if (empty($TMUX))
   endif
 endif
 
+
+" NERDTree config
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufRead * call SyncTree()
+
+
 " coc config
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
   \ 'coc-eslint', 
-  \ 'coc-prettier', 
+  \ 'coc-explorer',
+  \ 'coc-floaterm',
+  \ 'coc-html',
   \ 'coc-json', 
+  \ 'coc-pairs',
+  \ 'coc-prettier', 
+  \ 'coc-python',
+  \ 'coc-sh',
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-yank',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
