@@ -71,6 +71,24 @@ Neovim config
 - Nerdcommenter - https://github.com/preservim/nerdcommenter
 - Treesitter - https://github.com/nvim-treesitter/nvim-treesitter
 
+# FAQ
+
+- How to synchronize sudo nvim and nvim ?<br />
+  <br/>
+  In /etc/vimrc, add `source /home/<user>/.vimrc` <br />
+  In /etc/xdg/nvim/sysinit.vim, add `source /home/<user>/.config/nvim/init.vim` <br />
+  <br />
+  Link Treesitter Modules and Coc Settings
+  ```
+  ln -s /home/<user>/.config/nvim/lua /etc/xdg/nvim/lua
+  ln -s /home/<user>/.config/nvim/coc-settings.json /etc/xdg/nvim/coc-settings.json
+  ```
+  Enable Vim-Plug
+  ```
+  ln -s /home/<user>/.vimrc /root/.vimrc
+  ln -s /home/<user>/.vim/ /root/.vim
+  ```
+
 # Repositories
 
 - Github - https://github.com/ronylee11/ant
