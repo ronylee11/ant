@@ -50,8 +50,9 @@
     }
   },
   "sh.enable": false,
-  "rainbow-fart.disable-voice-packages": [],
-  "rainbow-fart.trace.server": "verbose"
+  "rainbow-fart.locale": ["jp"],
+  "rainbow-fart.voice-packages": ["$HOME/.local/share/yukino"],
+  "rainbow-fart.disable-voice-packages": []
   // TODO language servers
   // TODO g:coc_global_extensions
   // TODO b:coc_suggest_disable=1 GOYO
