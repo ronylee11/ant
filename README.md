@@ -88,6 +88,11 @@ Neovim config
   ln -s /home/<user>/.vimrc /root/.vimrc
   ln -s /home/<user>/.vim/ /root/.vim
   ```
+- How to fix coc-rainbow-fart not playing audio ?<br />
+  <br />
+  In ~/.config/coc/extensions/coc-rainbow-fart-data<br />
+  Remove ffplay and replace it with a symlink to ffplay installed locally (/bin/ffplay)<br />
+  With the command `ln -s /bin/ffplay ffplay`<br />
 
 # Repositories
 
