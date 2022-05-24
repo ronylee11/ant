@@ -6,7 +6,8 @@ aka. my "workspace" setup
 # Screenshot
 
 Picture of nvim with NERDTree and Floaterm
-![Alt text](./showcase.png)
+![Alt text](./alacritty+tmux-showcase.png)
+![Alt text](./nvim-showcase.png)
 
 # Usage
 
