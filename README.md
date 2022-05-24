@@ -5,7 +5,7 @@ aka. my "workspace" setup
 
 # Screenshot
 
-Picture of 3 alacritty nvim instances, one running terminal using tmux
+Picture of nvim with NERDTree and Floaterm
 ![Alt text](./showcase.png)
 
 # Usage
