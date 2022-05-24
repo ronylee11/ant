@@ -104,6 +104,7 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-yank',
+  \ 'coc-rainbow-fart',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
@@ -225,3 +226,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" prettier command for coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile

@@ -49,7 +49,9 @@
       "ignoredRootPaths": ["~"]
     }
   },
-  "sh.enable": false
+  "sh.enable": false,
+  "rainbow-fart.disable-voice-packages": [],
+  "rainbow-fart.trace.server": "verbose"
   // TODO language servers
   // TODO g:coc_global_extensions
   // TODO b:coc_suggest_disable=1 GOYO
