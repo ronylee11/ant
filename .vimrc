@@ -12,6 +12,8 @@ Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'preservim/nerdcommenter' " Comment Line
 Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Search word in all docs
+Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
 " Themes
 Plug 'morhetz/gruvbox'
 "Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -24,13 +26,22 @@ autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark    " Setting dark mode
 
 set number
+" Toggle NERDTree
 nmap <C-b> :NERDTreeToggle<CR>
+" Opening and Closing Floaterm
 nmap <A-Esc> :FloatermToggle<CR>
 tnoremap <esc><esc> <c-\><c-n>
+" Switching Tabs
 map <C-Right> :tabn<cr>
 map <C-Left> :tabp<cr>
+" Commenting and Uncommenting
 nmap <C-_> <leader>c<Space>
 vmap <C-_> <leader>c<Space>
+" Set <tab> space wide
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 
 " You might have to force true color when using regular vim inside tmux as the
