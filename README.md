@@ -112,3 +112,5 @@ Neovim config
 - NERDTree Keybind - https://vi.stackexchange.com/questions/9967/how-do-i-open-and-close-nerdtree-toggle-nerdtree-view-using-a-single-keystroke
 - Floaterm Keybind - https://github.com/vim/vim/issues/2216
 - Bind Ctrl+/ - https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
+- How to search for a specific word in all files - https://stackoverflow.com/questions/38398787/how-do-i-search-in-all-files-of-my-project-using-vim
+- How to set specific tab space - https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
