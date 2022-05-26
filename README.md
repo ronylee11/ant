@@ -38,7 +38,7 @@ Neovim config
 		Open File in New Tab - T
 		Open File in Horizontal Split - I
 		Open File in Vertical Split - S
-		Move/Rename File - M
+		Create/(Move or Rename)/Delete File - M + A/M/D
 	Floaterm:
 		Toggle Terminal - Alt + Escape
 		Terminal Normal Mode - Escape + Escape
