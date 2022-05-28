@@ -114,3 +114,5 @@ Neovim config
 - Bind Ctrl+/ - https://stackoverflow.com/questions/9051837/how-to-map-c-to-toggle-comments-in-vim
 - How to search for a specific word in all files - https://stackoverflow.com/questions/38398787/how-do-i-search-in-all-files-of-my-project-using-vim
 - How to set specific tab space - https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
+- How to tab forward and backward in vim - https://stackoverflow.com/questions/4559896/how-to-tab-backwards-remove-a-tab-or-tab-spaces-in-vim
+- Zathura config - https://gist.github.com/michaelmrose/9595075b43f24aa903fa
