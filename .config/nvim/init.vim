@@ -4,5 +4,6 @@ source /home/cleff/.vimrc
 
 " Load treesitter config
 lua << EOF
-require('plugin-config/highlight') 
+require('config/languages')
+require('config/highlight') 
 EOF

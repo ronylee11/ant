@@ -14,6 +14,7 @@ Plug 'preservim/nerdcommenter' " Comment Line
 Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Search word in all docs
 Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
+Plug 'mattn/emmet-vim' " Emmet
 " Themes
 Plug 'morhetz/gruvbox'
 "Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -42,7 +43,9 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-
+" Emmet
+nnoremap <c-z> <nop>
+let g:user_emmet_leader_key='<C-Z>'
 
 " You might have to force true color when using regular vim inside tmux as the
 " colorscheme can appear to be grayscale with "termguicolors" option enabled.
