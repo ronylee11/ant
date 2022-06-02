@@ -117,3 +117,4 @@ Neovim config
 - How to set specific tab space - https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces
 - How to tab forward and backward in vim - https://stackoverflow.com/questions/4559896/how-to-tab-backwards-remove-a-tab-or-tab-spaces-in-vim
 - Zathura config - https://gist.github.com/michaelmrose/9595075b43f24aa903fa
+- How to reload file - https://vi.stackexchange.com/questions/444/how-do-i-reload-the-current-file
