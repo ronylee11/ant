@@ -46,8 +46,8 @@ font:
     #   - (Windows) Consolas
     # family: SauceCodePro Nerd Font
     # family: CodeNewRoman Nerd Font
-    family: RobotoMono Nerd Font Mono
-    # family: Hack
+    #family: RobotoMono Nerd Font Mono
+    family: Hack Nerd Font Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -65,8 +65,8 @@ font:
     # value specified for the normal font.
     # family: SauceCodePro Nerd Font
     # family: CodeNewRoman Nerd Font
-    family: RobotoMono Nerd Font Mono
-    # family: Hack
+    #family: RobotoMono Nerd Font Mono
+    family: Hack Nerd Font Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -84,8 +84,8 @@ font:
     # value specified for the normal font.
     # family: SauceCodePro Nerd Font Mono
     # family: CodeNewRoman Nerd Font
-    family: RobotoMono Nerd Font Mono
-    # family: Hack
+    #family: RobotoMono Nerd Font Mono
+    family: Hack Nerd Font Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
@@ -103,8 +103,8 @@ font:
     # value specified for the normal font.
     # family: SauceCodePro Nerd Font Mono
     # family: CodeNewRoman Nerd Font
-    family: RobotoMono Nerd Font Mono
-    # family: Hack
+    #family: RobotoMono Nerd Font Mono
+    family: Hack Nerd Font Mono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
@@ -115,7 +115,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 11.0
 
   offset:
     x: 1
