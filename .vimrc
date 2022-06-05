@@ -16,15 +16,23 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Search word in all docs
 Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
 Plug 'mattn/emmet-vim' " Emmet
 " Themes
-Plug 'morhetz/gruvbox'
-"Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+"Plug 'morhetz/gruvbox'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-autocmd vimenter * ++nested colorscheme gruvbox
+" Themes
+"autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme catppuccin
 set background=dark    " Setting dark mode
+"colorscheme gruvbox " Gruvbox
+colorscheme catppuccin " Catppuccin
+let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
+colorscheme catppuccin
+"let g:airline_theme='onedark' " Airline
+let g:airline_theme='nord_minimal' " Airline
 
 set number
 " Toggle NERDTree
@@ -56,9 +64,6 @@ endif
 
 syntax on
 set termguicolors
-colorscheme gruvbox
-"colorscheme catppuccin
-let g:airline_theme='onedark'
 
 
 " True Color config
