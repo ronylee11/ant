@@ -116,7 +116,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 10.0
 
   offset:
     x: 1
@@ -131,8 +131,10 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 80
-    lines: 52
+    #columns: 80
+    #lines: 52
+    columns: 0
+    lines: 0
 
   # Window position (changes require restart)
   #
@@ -269,8 +271,7 @@ shell:
   # When set to `launcher: None`, URL launching will be disabled completely.
   #
   # Default:
-  #   - (macOS) open
-  #   - (Linux/BSD) xdg-open
+  #   - (macOS) open - (Linux/BSD) xdg-open
   #   - (Windows) explorer
   #launcher:
   #  program: xdg-open
