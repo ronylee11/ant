@@ -46,6 +46,16 @@ nvim
 
 Run `:checkhealth` to add other dependencies you need
 
+Install [TPM]
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux
+```
+
+Then press CTRL+F, R to source tmux.conf
+CTRL+F, Shift+I to install tmux plugins
+
 # Usage
 
 Tmux config from Fatih Arslan
