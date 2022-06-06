@@ -9,6 +9,40 @@ Picture of nvim with NERDTree and Floaterm
 ![Alt text](./alacritty+tmux-showcase.png)
 ![Alt text](./nvim-showcase.png)
 
+# Installation
+
+Install alacritty, neovim, tmux using your favourite package manager<br />
+(Arch Linux)
+
+```
+sudo pacman -S alacritty neovim tmux
+```
+
+Run the Install script
+
+```
+git clone --depth 1 https://github.com/ronylee11/ant
+cd ant
+./install.sh
+```
+
+Install [Vim-Plug](https://github.com/junegunn/vim-plug)
+
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+Install all the plugins in nvim
+
+```
+nvim
+:source %
+:PlugInstall
+```
+
+Run `:checkhealth` to add other dependencies you need
+
 # Usage
 
 Tmux config from Fatih Arslan
