@@ -5,9 +5,12 @@ aka. my "workspace" setup
 
 # Screenshot
 
-Picture of nvim with NERDTree and Floaterm
-![Alt text](./alacritty+tmux-showcase.png)
-![Alt text](./nvim-showcase.png)
+Picture of alacritty with tmux session
+![Alt text](./.github/alacritty+tmux-showcase.png)
+Picture of nvim with NERDTree and Floaterm (Gruvbox Theme)
+![Alt text](./.github/gruvbox-showcase.png)
+Picture of nvim with NERDTree and Floaterm (Catppucin Theme)
+![Alt text](./.github/catppucin-showcase.png)
 
 # Installation
 
