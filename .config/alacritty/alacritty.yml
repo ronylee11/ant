@@ -4,8 +4,9 @@
 colors:
   # Default colors
   primary:
-    background: "#1e2127"
-    # background: "#2E3440"
+    #background: "#1e2127"
+    #background: "#2E3440"
+    background: "#000000"
     foreground: "#D8DEE9"
 
   # Normal colors
@@ -149,7 +150,7 @@ window:
     x: 0
     y: 0
 
-  opacity: 0.8
+  opacity: 0.5
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
