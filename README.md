@@ -46,7 +46,7 @@ nvim
 
 Run `:checkhealth` to add other dependencies you need
 
-Install [TPM]
+Install [TPM](https://github.com/tmux-plugins/tpm)
 
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
