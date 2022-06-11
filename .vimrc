@@ -54,6 +54,8 @@ set expandtab
 " Emmet
 nnoremap <c-z> <nop>
 let g:user_emmet_leader_key='<C-Z>'
+" Force saving files that require root permission 
+cnoremap w!! w !sudo tee > /dev/null %
 
 " You might have to force true color when using regular vim inside tmux as the
 " colorscheme can appear to be grayscale with "termguicolors" option enabled.

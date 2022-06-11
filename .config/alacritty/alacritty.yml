@@ -120,7 +120,7 @@ font:
 
   offset:
     x: 1
-    y: 1
+    y: 0
   glyph_offset:
     x: 0
     y: 0
@@ -141,7 +141,7 @@ window:
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   position:
-    x: 960
+    x: 0
     y: 0
 
   # Window padding (changes require restart)
@@ -155,7 +155,7 @@ window:
   opacity: 0.5
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -217,9 +217,7 @@ selection:
 #cursor:
 # Cursor style
 #
-# Values for `style`:
-#   - ▇ Block
-#   - _ Underline
+# Values for `style`: - ▇ Block - _ Underline
 #   - | Beam
 #style: Block
 
