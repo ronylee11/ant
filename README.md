@@ -44,7 +44,13 @@ nvim
 :PlugInstall
 ```
 
-Run `:checkhealth` to add other dependencies you need
+Run `:checkhealth` to add other dependencies you need<br />
+To Enable Python Support
+
+```
+pip install pynvim
+sudo pip install pynvim
+```
 
 Install [TPM](https://github.com/tmux-plugins/tpm)
 
