@@ -56,6 +56,8 @@ nnoremap <c-z> <nop>
 let g:user_emmet_leader_key='<C-Z>'
 " Force saving files that require root permission 
 cnoremap w!! w !sudo tee > /dev/null %
+" Auto Syntax Highlight .html file
+autocmd BufNewFile,BufRead *.ejs,html set filetype=html
 
 " You might have to force true color when using regular vim inside tmux as the
 " colorscheme can appear to be grayscale with "termguicolors" option enabled.
