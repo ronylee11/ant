@@ -69,6 +69,16 @@ npm i -g bash-language-server
 sudo pacman -S ffmpeg
 ```
 
+Edit snippets with <br/>
+:CocCommand snippets.editSnippets<br/>
+at the end of the file, add<br/>
+
+```
+snippet cl "console.log()" b
+console.log($1);
+endsnippet
+```
+
 # Usage
 
 Tmux config from Fatih Arslan
