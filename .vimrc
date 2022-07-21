@@ -15,6 +15,7 @@ Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Search word in all docs
 Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
 Plug 'mattn/emmet-vim' " Emmet
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown Preview, requires yarn and nodejs
 " Themes
 "Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -34,7 +35,11 @@ colorscheme catppuccin
 "let g:airline_theme='onedark' " Airline
 let g:airline_theme='nord_minimal' " Airline
 
+" Add Number Line at beginning of every line
 set number
+set relativenumber
+" Add clipboard support
+set clipboard+=unnamedplus
 " Toggle NERDTree
 nmap <C-b> :NERDTreeToggle<CR>
 " Opening and Closing Floaterm
@@ -58,6 +63,10 @@ let g:user_emmet_leader_key='<C-Z>'
 cnoremap w!! w !sudo tee > /dev/null %
 " Auto Syntax Highlight .html file
 autocmd BufNewFile,BufRead *.ejs,html set filetype=html
+" Ag Searching Tool
+let g:ackprg = 'ag --nogroup --nocolor --column'
+nnoremap <c-p> :Files<CR>
+
 
 " You might have to force true color when using regular vim inside tmux as the
 " colorscheme can appear to be grayscale with "termguicolors" option enabled.
@@ -224,8 +233,8 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
+"nmap <silent> <C-d> <Plug>(coc-range-select)
+"xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
