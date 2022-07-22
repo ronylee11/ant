@@ -56,9 +56,9 @@ Install [TPM](https://github.com/tmux-plugins/tpm)
 
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux
 ```
 
+Run `tmux`
 Then press CTRL+F, R to source tmux.conf<br/>
 CTRL+F, Shift+I to install tmux plugins<br/>
 
@@ -67,6 +67,7 @@ Install other dependencies
 ```
 npm i -g bash-language-server
 sudo pacman -S ffmpeg
+sudo pacman -S yarn
 ```
 
 Edit snippets with <br/>
