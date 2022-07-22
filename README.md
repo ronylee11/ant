@@ -39,7 +39,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 Install all the plugins in nvim
 
 ```
-nvim
+nvim ~/.vimrc
 :source %
 :PlugInstall
 ```
