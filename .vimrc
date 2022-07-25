@@ -16,6 +16,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Search word in all docs
 Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
 Plug 'mattn/emmet-vim' " Emmet
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown Preview, requires yarn and nodejs
+Plug 'github/copilot.vim' " Github Copilot, autosuggest code
 " Themes
 "Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
