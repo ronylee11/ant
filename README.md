@@ -161,6 +161,12 @@ Neovim config
   ln -s /home/<user>/.vimrc /root/.vimrc
   ln -s /home/<user>/.vim/ /root/.vim
   ```
+  Link Plugins
+  ```
+  su
+  cd /root/.local/share/nvim/
+  ln -s /home/<user>/.local/share/nvim/plugged plugged
+  ```
 - How to fix coc-rainbow-fart not playing audio ?<br />
   <br />
   In ~/.config/coc/extensions/coc-rainbow-fart-data<br />
