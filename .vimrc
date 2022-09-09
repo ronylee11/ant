@@ -8,6 +8,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree Syntax Highlight
 Plug 'PhilRunninger/nerdtree-visual-selection' " Nerdtree Move,Delete,Copy,Open
 Plug 'voldikss/vim-floaterm' " Floating Terminal
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlight
+Plug 'nvim-treesitter/nvim-treesitter-context' " Sticky Header
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'preservim/nerdcommenter' " Comment Line
@@ -17,6 +18,10 @@ Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
 Plug 'mattn/emmet-vim' " Emmet
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown Preview, requires yarn and nodejs
 Plug 'github/copilot.vim' " Github Copilot, autosuggest code
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Telescope, :Files but with syntax highlighting
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 " Themes
 "Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -63,10 +68,16 @@ let g:user_emmet_leader_key='<C-Z>'
 " Force saving files that require root permission 
 cnoremap w!! w !sudo tee > /dev/null %
 " Auto Syntax Highlight .html file
-autocmd BufNewFile,BufRead *.ejs,html set filetype=html
+"autocmd BufNewFile,BufRead *.ejs,html set filetype=html
+autocmd BufNewFile,BufRead *.html set filetype=html
 " Ag Searching Tool
 let g:ackprg = 'ag --nogroup --nocolor --column'
-nnoremap <c-p> :Files<CR>
+"nnoremap <c-p> :Files<CR>
+" Telescope
+nnoremap <c-p> :Telescope find_files<CR>
+" Harpoon
+nnoremap <1> :lua require'harpoon.mark'.add_file()<CR>
+nnoremap <2> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 
 
 " You might have to force true color when using regular vim inside tmux as the
