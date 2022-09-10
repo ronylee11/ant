@@ -152,21 +152,33 @@ Neovim config
   In /etc/xdg/nvim/sysinit.vim, add `source /home/<user>/.config/nvim/init.vim` <br />
   <br />
   Link Treesitter Modules and Coc Settings
+
   ```
   ln -s /home/<user>/.config/nvim/lua /etc/xdg/nvim/lua
   ln -s /home/<user>/.config/nvim/coc-settings.json /etc/xdg/nvim/coc-settings.json
   ```
+
   Enable Vim-Plug
+
   ```
   ln -s /home/<user>/.vimrc /root/.vimrc
   ln -s /home/<user>/.vim/ /root/.vim
   ```
+
+  Link Coc Extensions
+
+  ```
+  ln -s /home/<user>/.config/coc /root/.config/coc
+  ```
+
   Link Plugins
+
   ```
   su
   cd /root/.local/share/nvim/
   ln -s /home/<user>/.local/share/nvim/plugged plugged
   ```
+
 - How to fix coc-rainbow-fart not playing audio ?<br />
   <br />
   In ~/.config/coc/extensions/coc-rainbow-fart-data<br />
