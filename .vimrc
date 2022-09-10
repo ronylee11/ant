@@ -1,6 +1,6 @@
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
+Plug 'neoclide/coc.nvim', { 'tag': 'v0.0.81' } " Autocompletion and definition preview
 Plug 'preservim/nerdtree' " Nerdtree the file system tree explorer
 Plug 'Xuyuanp/nerdtree-git-plugin' " Nerdtree Modified
 Plug 'ryanoasis/vim-devicons' " Nerdtree icon
@@ -153,7 +153,7 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-sh',
   \ 'coc-snippets',
-  \ 'coc-tsserver',
+  \ 'coc-tsserver@1.11.1',
   \ 'coc-yank',
   \ 'coc-rainbow-fart',
   \ ]
@@ -170,9 +170,9 @@ set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <S-TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ <SID>check_back_space() ? "\<S-TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
@@ -187,6 +187,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-y>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 

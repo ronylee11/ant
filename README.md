@@ -80,6 +80,14 @@ console.log($1);
 endsnippet
 ```
 
+Enable Copilot
+
+```
+npm i -g n
+n install v17
+:Copilot setup
+```
+
 # Usage
 
 Tmux config from Fatih Arslan
