@@ -8,5 +8,6 @@ lua << EOF
 require('config/languages')
 require('config/highlight') 
 -- Load telescope
-require('telescope')
+require('telescope/fzf-native')
+require('telescope/live_grep_args')
 EOF

@@ -22,6 +22,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Telescope, :Files but with syntax highlighting
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 " Themes
 "Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -74,10 +75,18 @@ autocmd BufNewFile,BufRead *.html set filetype=html
 let g:ackprg = 'ag --nogroup --nocolor --column'
 "nnoremap <c-p> :Files<CR>
 " Telescope
-nnoremap <c-p> :Telescope find_files<CR>
+"Search files by file name
+nnoremap <c-p> :Telescope find_files<CR> 
+"Search files by content
+nnoremap <c-n> :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
 " Harpoon
-nnoremap <1> :lua require'harpoon.mark'.add_file()<CR>
-nnoremap <2> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <c-a> :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <a-a> :lua require'harpoon.mark'.add_file()<CR>
+nnoremap <a-1> :lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <a-2> :lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <a-3> :lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <a-4> :lua require("harpoon.ui").nav_file(4)<CR>
+nnoremap <a-5> :lua require("harpoon.ui").nav_file(5)<CR>
 
 
 " You might have to force true color when using regular vim inside tmux as the
@@ -281,3 +290,4 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
