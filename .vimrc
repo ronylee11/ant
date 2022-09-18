@@ -23,6 +23,8 @@ Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Telescope, :Files but with syntax highlighting
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 Plug 'nvim-telescope/telescope-live-grep-args.nvim'
+Plug 'sbdchd/neoformat'
+Plug 'maksimr/vim-jsbeautify'
 " Themes
 "Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -291,3 +293,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Formatter
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
