@@ -131,6 +131,13 @@ Neovim config
 	NERDcommenter:
 		Comment/Uncomment Line - Ctrl + /
 		Comment/Uncomment Multiple Line - (Highlight in Visual Mode) and Ctrl + /
+  Telescope:
+    Search File by Filename - Ctrl + P
+    Search File by Content - Ctrl + N
+  Harpoon:
+    View all marked files - Ctrl + A
+    Mark current file - Alt + A
+    Jump to marked file no 1~5 - Alt + 1~5
 
 
 ```
