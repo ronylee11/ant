@@ -1,6 +1,6 @@
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', { 'tag': 'v0.0.81' } " Autocompletion and definition preview
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree' " Nerdtree the file system tree explorer
 Plug 'Xuyuanp/nerdtree-git-plugin' " Nerdtree Modified
 Plug 'ryanoasis/vim-devicons' " Nerdtree icon
@@ -28,7 +28,8 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'luk400/vim-lichess' " Lichess
 " Themes
 "Plug 'morhetz/gruvbox'
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+"Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'cocopon/iceberg.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -36,14 +37,16 @@ call plug#end()
 
 " Themes
 "autocmd vimenter * ++nested colorscheme gruvbox
-autocmd vimenter * ++nested colorscheme catppuccin
+"autocmd vimenter * ++nested colorscheme catppuccin
+autocmd vimenter * ++nested colorscheme iceberg
 set background=dark    " Setting dark mode
 "colorscheme gruvbox " Gruvbox
-colorscheme catppuccin " Catppuccin
-let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
-colorscheme catppuccin
+"colorscheme catppuccin " Catppuccin
+"let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
+"colorscheme catppuccin
 "let g:airline_theme='onedark' " Airline
-let g:airline_theme='nord_minimal' " Airline
+"let g:airline_theme='nord_minimal' " Airline
+let g:airline_theme='iceberg' " Airline
 
 " Add Number Line at beginning of every line
 set number
