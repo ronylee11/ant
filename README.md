@@ -65,9 +65,7 @@ CTRL+F, Shift+I to install tmux plugins<br/>
 Install other dependencies
 
 ```
-npm i -g bash-language-server
-sudo pacman -S ffmpeg
-sudo pacman -S yarn
+sudo pacman -S bash-language-server ffmpeg yarn ripgrep
 ```
 
 Edit snippets with <br/>
