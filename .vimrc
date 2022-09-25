@@ -25,6 +25,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'luk400/vim-lichess' " Lichess
 " Themes
 "Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -294,7 +295,10 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Formatter
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+"augroup fmt
+  "autocmd!
+  "autocmd BufWritePre * undojoin | Neoformat
+"augroup END
+
+" Lichess
+let g:lichess_api_token = "lip_MAuavbwgOo1hmk4mhvhk"

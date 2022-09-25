@@ -4,32 +4,30 @@
 colors:
   # Default colors
   primary:
-    #background: "#1e2127"
-    #background: "#2E3440"
-    background: "#000000"
-    foreground: "#D8DEE9"
+    background: '#17171C'
+    foreground: '#f2f2e9'
 
   # Normal colors
   normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#abb2bf"
+    black: "#212126"
+    red: "#cc7a7a"
+    green: "#b1cc7a"
+    yellow: "#cca37a"
+    blue: "#7a96cc"
+    magenta: "#b886d1"
+    cyan: "#7ab1cc"
+    white: "#f2e0ce"
 
   # Bright colors
   bright:
-    black: "#5c6370"
+    black: "#212126"
     red: "#e06c75"
-    green: "#98c379"
-    yellow: "#d19a66"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
-    white: "#ECEFF4"
+    green: "#b1cc7a"
+    yellow: "#cca37a"
+    blue: "#7a96cc"
+    magenta: "#b886d1"
+    cyan: "#7ab1cc"
+    white: "#f2e0ce"
 
 # True Color
 env:
@@ -48,7 +46,8 @@ font:
     # family: SauceCodePro Nerd Font
     # family: CodeNewRoman Nerd Font
     #family: RobotoMono Nerd Font Mono
-    family: Hack Nerd Font Mono
+    #family: Hack Nerd Font Mono
+    family: RobotoMono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -67,7 +66,8 @@ font:
     # family: SauceCodePro Nerd Font
     # family: CodeNewRoman Nerd Font
     #family: RobotoMono Nerd Font Mono
-    family: Hack Nerd Font Mono
+    #family: Hack Nerd Font Mono
+    family: RobotoMono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofur Nerd Font
@@ -86,7 +86,8 @@ font:
     # family: SauceCodePro Nerd Font Mono
     # family: CodeNewRoman Nerd Font
     #family: RobotoMono Nerd Font Mono
-    family: Hack Nerd Font Mono
+    #family: Hack Nerd Font Mono
+    family: RobotoMono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
@@ -105,7 +106,8 @@ font:
     # family: SauceCodePro Nerd Font Mono
     # family: CodeNewRoman Nerd Font
     #family: RobotoMono Nerd Font Mono
-    family: Hack Nerd Font Mono
+    #family: Hack Nerd Font Mono
+    family: RobotoMono
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
     # family: Monofuritalic Nerd Font Mono
@@ -116,10 +118,10 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 8.5
 
   offset:
-    x: 1
+    x: 0
     y: 0
   glyph_offset:
     x: 0
@@ -149,10 +151,10 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
-    y: 0
+    x: 25
+    y: 29
 
-  opacity: 0.5
+  opacity: 0.96
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
