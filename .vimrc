@@ -1,6 +1,6 @@
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
 Plug 'preservim/nerdtree' " Nerdtree the file system tree explorer
 Plug 'Xuyuanp/nerdtree-git-plugin' " Nerdtree Modified
 Plug 'ryanoasis/vim-devicons' " Nerdtree icon
