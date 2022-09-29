@@ -42,8 +42,8 @@ autocmd vimenter * ++nested colorscheme iceberg
 set background=dark    " Setting dark mode
 "colorscheme gruvbox " Gruvbox
 "colorscheme catppuccin " Catppuccin
+colorscheme iceberg " Iceberg
 "let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
-"colorscheme catppuccin
 "let g:airline_theme='onedark' " Airline
 "let g:airline_theme='nord_minimal' " Airline
 let g:airline_theme='iceberg' " Airline
@@ -56,7 +56,10 @@ set clipboard+=unnamedplus
 " Toggle NERDTree
 nmap <C-b> :NERDTreeToggle<CR>
 " Opening and Closing Floaterm
-nmap <A-Esc> :FloatermToggle<CR>
+"Open Floaterm in current directory
+nmap <A-Esc> :FloatermToggle<CR> 
+"Open Floaterm in current buffer
+"nmap <A-Esc> :FloatermNew! cd %:p:h<CR>
 tnoremap <esc><esc> <c-\><c-n>
 " Switching Tabs
 map <C-Right> :tabn<cr>
