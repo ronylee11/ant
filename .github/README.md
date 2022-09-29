@@ -6,11 +6,13 @@ aka. my "workspace" setup
 # Screenshot
 
 Picture of alacritty with tmux session
-![Alt text](./.github/alacritty+tmux-showcase.png)
+![Alt text](./assets/alacritty+tmux-showcase.png)
 Picture of nvim with NERDTree and Floaterm (Gruvbox Theme)
-![Alt text](./.github/gruvbox-showcase.png)
+![Alt text](./assets/gruvbox-showcase.png)
 Picture of nvim with NERDTree and Floaterm (Catppucin Theme)
-![Alt text](./.github/catppucin-showcase.png)
+![Alt text](./assets/catppucin-showcase.png)
+Picture of nvim with NERDTree and Floaterm (Iceberg Theme)
+![Alt text](./assets/iceberg-showcase.jpg)
 
 # Installation
 
