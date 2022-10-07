@@ -78,8 +78,8 @@ let g:user_emmet_leader_key='<C-Z>'
 " Force saving files that require root permission 
 cnoremap w!! w !sudo tee > /dev/null %
 " Auto Syntax Highlight .html file
-"autocmd BufNewFile,BufRead *.ejs,html set filetype=html
-autocmd BufNewFile,BufRead *.html set filetype=html
+autocmd BufNewFile,BufRead *.ejs,html set filetype=html
+"autocmd BufNewFile,BufRead *.html set filetype=html
 " Ag Searching Tool
 let g:ackprg = 'ag --nogroup --nocolor --column'
 "nnoremap <c-p> :Files<CR>

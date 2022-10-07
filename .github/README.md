@@ -195,6 +195,13 @@ Neovim config
   ln -s /home/<user>/.local/share/nvim/plugged plugged
   ```
 
+  Link Python Modules (specifically needing pynvim)
+
+  ```
+  cd /root/.local
+  ln -s /home/<user>/.local/lib lib
+  ```
+
 - How to fix coc-rainbow-fart not playing audio ?<br />
   <br />
   In ~/.config/coc/extensions/coc-rainbow-fart-data<br />
