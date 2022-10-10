@@ -1,6 +1,6 @@
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
-source /home/cleff/.vimrc
+source $HOME/.vimrc
 
 " Load lua config files
 lua << EOF
