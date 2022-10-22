@@ -14,7 +14,8 @@ colors:
   # Normal colors
   normal:
     #black: "#3B4252"
-    black: "#212126"
+    black: "#5c6370"
+    #black: "#212126"
     #red: "#BF616A"
     red: "#cc7a7a"
     #green: "#A3BE8C"
@@ -32,10 +33,10 @@ colors:
 
   # Bright colors
   bright:
-    #black: "#5c6370"
-    black: "#212126"
+    black: "#5c6370"
+    #black: "#212126"
     #red: "#e06c75"
-    red: "#e06c75"
+    red: "#cc7a7a"
     #green: "#98c379"
     green: "#b1cc7a"
     #yellow: "#d19a66"
