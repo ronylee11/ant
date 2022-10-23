@@ -308,4 +308,4 @@ augroup fmt
 augroup END
 
 " Lichess
-let g:lichess_api_token = "lip_MAuavbwgOo1hmk4mhvhk"
+let g:lichess_api_token = "" " -- Get Lichess Api Token from https://lichess.org/account/oauth/token/create
