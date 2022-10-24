@@ -25,8 +25,6 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCM
 Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'maksimr/vim-jsbeautify'
-Plug 'luk400/vim-lichess' " Lichess
-Plug 'manzeloth/live-server' " Live server
 " Themes
 "Plug 'morhetz/gruvbox'
 "Plug 'catppuccin/nvim', {'as': 'catppuccin'}
@@ -307,5 +305,5 @@ augroup fmt
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
-" Lichess
-let g:lichess_api_token = "" " -- Get Lichess Api Token from https://lichess.org/account/oauth/token/create
+" Neovide font
+set guifont=Hack\ Nerd\ Font\ Mono:h10
