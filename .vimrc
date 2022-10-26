@@ -21,8 +21,6 @@ Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'maksimr/vim-jsbeautify'
 " Themes
-"Plug 'morhetz/gruvbox'
-"Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'cocopon/iceberg.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -30,16 +28,9 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Themes
-"autocmd vimenter * ++nested colorscheme gruvbox
-"autocmd vimenter * ++nested colorscheme catppuccin
 autocmd vimenter * ++nested colorscheme iceberg
 set background=dark    " Setting dark mode
-"colorscheme gruvbox " Gruvbox
-"colorscheme catppuccin " Catppuccin
 colorscheme iceberg " Iceberg
-"let g:catppuccin_flavour = "macchiato" " latte, frappe, macchiato, mocha
-"let g:airline_theme='onedark' " Airline
-"let g:airline_theme='nord_minimal' " Airline
 let g:airline_theme='iceberg' " Airline
 
 " Add Number Line at beginning of every line
@@ -49,8 +40,6 @@ set relativenumber
 set clipboard+=unnamedplus
 "Open Floaterm in current directory
 nmap <A-Esc> :FloatermToggle<CR> 
-"Open Floaterm in current buffer
-"nmap <A-Esc> :FloatermNew! cd %:p:h<CR>
 tnoremap <esc><esc> <c-\><c-n>
 " Switching Tabs
 map <C-Right> :tabn<cr>
@@ -71,10 +60,8 @@ let g:user_emmet_leader_key='<C-Z>'
 cnoremap w!! w !sudo tee > /dev/null %
 " Auto Syntax Highlight .html file
 autocmd BufNewFile,BufRead *.ejs,html set filetype=html
-"autocmd BufNewFile,BufRead *.html set filetype=html
 " Ag Searching Tool
 let g:ackprg = 'ag --nogroup --nocolor --column'
-"nnoremap <c-p> :Files<CR>
 " Telescope
 "Search files by file name
 nnoremap <c-p> :Telescope find_files<CR> 
@@ -88,6 +75,8 @@ nnoremap <a-2> :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <a-3> :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <a-4> :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <a-5> :lua require("harpoon.ui").nav_file(5)<CR>
+" Netrw
+nnoremap <c-b> :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 
 " You might have to force true color when using regular vim inside tmux as the
@@ -99,7 +88,6 @@ endif
 
 syntax on
 set termguicolors
-
 
 " True Color config
 "Use 25-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -268,8 +256,16 @@ augroup END
 " Neovide font
 set guifont=Hack\ Nerd\ Font\ Mono:h10
 
-" Netrw Ctrl + L 
-" Unbind default keybind refresh screen and bind to TmuxNavigateRight
+" Netrw config 
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+" Hide hidden directories
+let ghregex='\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_list_hide=ghregex
+" Unbind default keybind refresh screen Ctrl + L and bind to TmuxNavigateRight
 augroup netrw_mapping
   autocmd!
   autocmd filetype netrw call NetrwMapping()
