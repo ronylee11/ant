@@ -1,11 +1,6 @@
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
-Plug 'preservim/nerdtree' " Nerdtree the file system tree explorer
-Plug 'Xuyuanp/nerdtree-git-plugin' " Nerdtree Modified
-Plug 'ryanoasis/vim-devicons' " Nerdtree icon
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Nerdtree Syntax Highlight 
-Plug 'PhilRunninger/nerdtree-visual-selection' " Nerdtree Move,Delete,Copy,Open
 Plug 'voldikss/vim-floaterm' " Floating Terminal
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlight
 Plug 'nvim-treesitter/nvim-treesitter-context' " Sticky Header
@@ -52,9 +47,6 @@ set number
 set relativenumber
 " Add clipboard support
 set clipboard+=unnamedplus
-" Toggle NERDTree
-nmap <C-b> :NERDTreeToggle<CR>
-" Opening and Closing Floaterm
 "Open Floaterm in current directory
 nmap <A-Esc> :FloatermToggle<CR> 
 "Open Floaterm in current buffer
@@ -64,8 +56,9 @@ tnoremap <esc><esc> <c-\><c-n>
 map <C-Right> :tabn<cr>
 map <C-Left> :tabp<cr>
 " Commenting and Uncommenting
-nmap <C-_> <leader>c<Space>
-vmap <C-_> <leader>c<Space>
+filetype plugin on
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle
 " Set <tab> space wide
 set tabstop=2
 set shiftwidth=2
@@ -124,39 +117,6 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-
-
-" NERDTree config
-let g:NERDTreeGitStatusWithFlags = 1
-
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufRead * call SyncTree()
-
 
 " coc config
 let g:coc_global_extensions = [
@@ -307,3 +267,14 @@ augroup END
 
 " Neovide font
 set guifont=Hack\ Nerd\ Font\ Mono:h10
+
+" Netrw Ctrl + L 
+" Unbind default keybind refresh screen and bind to TmuxNavigateRight
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+
+function! NetrwMapping()
+  nnoremap <silent> <buffer> <c-l> :TmuxNavigateRight<CR>
+endfunction

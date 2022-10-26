@@ -1,0 +1,3 @@
+local nnoremap = require("keymap").nnoremap
+
+nnoremap("<leader>pv", "<cmd>:wincmd v<bar> :Ex <bar> :vertical resize 30<CR>")
