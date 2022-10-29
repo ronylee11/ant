@@ -1,3 +1,10 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
@@ -7,19 +14,20 @@ Plug 'nvim-treesitter/nvim-treesitter-context' " Sticky Header
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'preservim/nerdcommenter' " Comment Line
-Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Search word in all docs
 Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
 Plug 'mattn/emmet-vim' " Emmet
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown Preview, requires yarn and nodejs
 Plug 'github/copilot.vim' " Github Copilot, autosuggest code
 Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
 Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Telescope, :Files but with syntax highlighting
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 Plug 'nvim-telescope/telescope-live-grep-args.nvim'
 Plug 'sbdchd/neoformat'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'neovimhaskell/haskell-vim'
 " Themes
 Plug 'cocopon/iceberg.vim'
 Plug 'vim-airline/vim-airline'
@@ -28,7 +36,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 " Themes
-autocmd vimenter * ++nested colorscheme iceberg
+"autocmd vimenter * ++nested colorscheme iceberg
 set background=dark    " Setting dark mode
 colorscheme iceberg " Iceberg
 let g:airline_theme='iceberg' " Airline
@@ -41,9 +49,14 @@ set clipboard+=unnamedplus
 "Open Floaterm in current directory
 nmap <A-Esc> :FloatermToggle<CR> 
 tnoremap <esc><esc> <c-\><c-n>
+" New Tab
+nmap <c-w>t :tabnew<cr> 
 " Switching Tabs
 map <C-Right> :tabn<cr>
 map <C-Left> :tabp<cr>
+" Only on GUI(Neovide)
+map <C-Tab> gt
+map <C-S-Tab> gT
 " Commenting and Uncommenting
 filetype plugin on
 nmap <C-_> <Plug>NERDCommenterToggle
@@ -53,13 +66,16 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+" set leader key to space
+let mapleader = ' '
 " Emmet
 nnoremap <c-z> <nop>
 let g:user_emmet_leader_key='<C-Z>'
 " Force saving files that require root permission 
 cnoremap w!! w !sudo tee > /dev/null %
 " Auto Syntax Highlight .html file
-autocmd BufNewFile,BufRead *.ejs,html set filetype=html
+autocmd BufNewFile,BufRead *.html set filetype=html
+"autocmd BufNewFile,BufRead *.ejs,html set filetype=html
 " Ag Searching Tool
 let g:ackprg = 'ag --nogroup --nocolor --column'
 " Telescope
@@ -86,6 +102,7 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
+filetype plugin indent on
 syntax on
 set termguicolors
 
@@ -210,10 +227,6 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-"nmap <silent> <C-d> <Plug>(coc-range-select)
-"xmap <silent> <C-d> <Plug>(coc-range-select)
-
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -248,10 +261,19 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Formatter
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+"augroup fmt
+  "autocmd!
+  "autocmd BufWritePre * undojoin | Neoformat
+"augroup END
+
+" Haskell
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " Neovide font
 set guifont=Hack\ Nerd\ Font\ Mono:h10
@@ -274,3 +296,4 @@ augroup END
 function! NetrwMapping()
   nnoremap <silent> <buffer> <c-l> :TmuxNavigateRight<CR>
 endfunction
+
