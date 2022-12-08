@@ -164,7 +164,6 @@ Neovim config
 
 - How to synchronize sudo nvim and nvim ?<br />
   <br/>
-  In /etc/vimrc, add `source /home/<user>/.vimrc` <br />
   In /etc/xdg/nvim/sysinit.vim, add `source /home/<user>/.config/nvim/init.vim` <br />
   <br />
   Link Treesitter Modules and Coc Settings

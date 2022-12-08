@@ -48,22 +48,19 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
-    "haskell": {
-      "command": "haskell-language-server-wrapper",
-      "args": ["--lsp"],
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
       "rootPatterns": [
-        ".stack.yaml",
-        ".hie-bios",
-        "BUILD.bazel",
-        "cabal.config",
-        "package.yaml"
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
       ],
-      "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {
-        "languageServerHaskell": {
-          "hlintOn": true,
-          "maxNumberOfProblems": 10,
-          "completionSnippetsOn": true
+        "cache": {
+          "directory": "/tmp/ccls"
         }
       }
     }

@@ -2,32 +2,39 @@ let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source %
 endif
 
 call plug#begin()
 
+" Utilities
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
-Plug 'voldikss/vim-floaterm' " Floating Terminal
+Plug 'sbdchd/neoformat' " Formatter for many languages
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlight
 Plug 'nvim-treesitter/nvim-treesitter-context' " Sticky Header
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'preservim/nerdcommenter' " Comment Line
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Search word in all docs
-Plug 'junegunn/fzf.vim' " Dependencies: the_silver_searcher, bat
+Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'mattn/emmet-vim' " Emmet
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multiple cursor
+" Good Practices
+Plug 'vim-syntastic/syntastic' " C++ Linter
+Plug 'mfussenegger/nvim-dap' " C++ Debugger
+Plug 'maksimr/vim-jsbeautify' " JS Syntax
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+" Cool stuff
+Plug 'voldikss/vim-floaterm' " Floating Terminal
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown Preview, requires yarn and nodejs
 Plug 'github/copilot.vim' " Github Copilot, autosuggest code
-Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
+Plug 'wakatime/vim-wakatime' " Vim Wakatime, records ur coding time
+" Navigation
+Plug 'ronylee11/startup.nvim' " Startup page
 Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Telescope, :Files but with syntax highlighting
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-Plug 'nvim-telescope/telescope-live-grep-args.nvim'
-Plug 'sbdchd/neoformat'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'neovimhaskell/haskell-vim'
+Plug 'nvim-lua/plenary.nvim' " Dependencies for telescope
+Plug 'nvim-telescope/telescope-file-browser.nvim' " Telescope File Browser
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' } " Telescope fzf plugin
+Plug 'nvim-telescope/telescope-live-grep-args.nvim' " Telescope live grep args
 " Themes
 Plug 'cocopon/iceberg.vim'
 Plug 'vim-airline/vim-airline'
@@ -81,8 +88,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " Telescope
 "Search files by file name
 nnoremap <c-p> :Telescope find_files<CR> 
-"Search files by content
-nnoremap <c-n> :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
+"Search files by content " By default it seems c-m is also binded to Enter Key
+nnoremap <c-m> :lua require("telescope").extensions.live_grep_args.live_grep_args()<CR>
 " Harpoon
 nnoremap <c-a> :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <a-a> :lua require'harpoon.mark'.add_file()<CR>
@@ -91,6 +98,11 @@ nnoremap <a-2> :lua require("harpoon.ui").nav_file(2)<CR>
 nnoremap <a-3> :lua require("harpoon.ui").nav_file(3)<CR>
 nnoremap <a-4> :lua require("harpoon.ui").nav_file(4)<CR>
 nnoremap <a-5> :lua require("harpoon.ui").nav_file(5)<CR>
+nnoremap <a-6> :lua require("harpoon.ui").nav_file(6)<CR>
+nnoremap <a-7> :lua require("harpoon.ui").nav_file(7)<CR>
+nnoremap <a-8> :lua require("harpoon.ui").nav_file(8)<CR>
+nnoremap <a-9> :lua require("harpoon.ui").nav_file(9)<CR>
+nnoremap <a-0> :lua require("harpoon.ui").nav_file(0)<CR>
 " Netrw
 nnoremap <c-b> :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
@@ -213,8 +225,8 @@ augroup mygroup
 augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>ar  <Plug>(coc-codeaction-selected)
+nmap <leader>ar  <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -241,39 +253,30 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Formatter
-"augroup fmt
-  "autocmd!
-  "autocmd BufWritePre * undojoin | Neoformat
-"augroup END
-
-" Haskell
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " Neovide font
 set guifont=Hack\ Nerd\ Font\ Mono:h10
@@ -297,3 +300,12 @@ function! NetrwMapping()
   nnoremap <silent> <buffer> <c-l> :TmuxNavigateRight<CR>
 endfunction
 
+let g:syntastic_cpp_checkers = ['cpplint']
+let g:syntastic_c_checkers = ['cpplint']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+" The following two lines are optional. Configure it to your liking!
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Multiple-cursor
+let g:VM_mouse_mappings = 1"
