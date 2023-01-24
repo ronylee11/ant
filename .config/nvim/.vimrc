@@ -150,6 +150,7 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver@1.11.1',
   \ 'coc-yank',
   \ 'coc-rainbow-fart',
+  \ 'coc-flutter',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
