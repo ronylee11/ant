@@ -310,3 +310,6 @@ let g:syntastic_check_on_wq = 0
 
 " Multiple-cursor
 let g:VM_mouse_mappings = 1"
+
+" Flutter Hot Reload
+autocmd BufWritePost */lib/*.dart :call FlutterHotReload()

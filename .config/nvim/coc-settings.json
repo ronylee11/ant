@@ -66,8 +66,8 @@
     }
   },
   "sh.enable": false,
-  "rainbow-fart.locale": ["jp"],
-  "rainbow-fart.voice-packages": ["$HOME/.local/share/yukino"],
+  "rainbow-fart.locale": [],
+  "rainbow-fart.voice-packages": [],
   "rainbow-fart.disable-voice-packages": [],
   "snippets.ultisnips.pythonPrompt": false
   // TODO language servers
