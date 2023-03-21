@@ -12,3 +12,4 @@ cp -r ~/.config/qutebrowser/bookmarks $SCRIPT_DIR/.config/qutebrowser
 cp ~/.config/qutebrowser/config.py $SCRIPT_DIR/.config/qutebrowser
 cp -r ~/.config/qutebrowser/greasemonkey $SCRIPT_DIR/.config/qutebrowser
 cp ~/.config/qutebrowser/quickmarks $SCRIPT_DIR/.config/qutebrowser
+cp -r ~/.zshrc $SCRIPT_DIR/.zshrc

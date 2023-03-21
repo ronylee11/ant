@@ -11,3 +11,4 @@ if [ ! -d "$TPM" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 cp $SCRIPT_DIR/.tmux/iceberg_minimal.tmux.conf ~/.tmux/iceberg_minimal.tmux.conf
+cp $SCRIPT_DIR/.zshrc ~

@@ -16,6 +16,7 @@ Plug 'preservim/nerdcommenter' " Comment Line
 Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'mattn/emmet-vim' " Emmet
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multiple cursor
+Plug 'thosakwe/vim-flutter' " Flutter Hot Reload
 " Good Practices
 Plug 'vim-syntastic/syntastic' " C++ Linter
 Plug 'mfussenegger/nvim-dap' " C++ Debugger
@@ -151,6 +152,7 @@ let g:coc_global_extensions = [
   \ 'coc-yank',
   \ 'coc-rainbow-fart',
   \ 'coc-flutter',
+  \ 'coc-java',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
@@ -310,6 +312,3 @@ let g:syntastic_check_on_wq = 0
 
 " Multiple-cursor
 let g:VM_mouse_mappings = 1"
-
-" Flutter Hot Reload
-autocmd BufWritePost */lib/*.dart :call FlutterHotReload()
