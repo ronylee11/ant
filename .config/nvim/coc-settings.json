@@ -19,17 +19,19 @@
   "list.indicator": ">",
   "list.selectedSignText": " ",
   // autoformat
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-    "html",
-    "json"
-  ],
+  "coc.preferences.formatOnSave": true,
+  //  "coc.preferences.formatOnSaveFiletypes": [
+  //    "css",
+  //    "markdown",
+  //    "java",
+  //    "javascript",
+  //    "javascriptreact",
+  //    "typescript",
+  //    "typescriptreact",
+  //    "typescript.tsx",
+  //    "html",
+  //    "json"
+  //  ],
   // snippets
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
   // explorer
@@ -41,6 +43,7 @@
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
   },
+  //"java.jdt.ls.java.home": "/usr/lib/jvm/zulu-jdk-fx",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",

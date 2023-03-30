@@ -1,5 +1,7 @@
 # Tab for auto complete
-#bindkey '\t' autosuggest-accept
+bindkey '\t' autosuggest-accept
+
+## Bind right arrow key to forward-char like in fish
 
 # Remove "forward-char" widgets from "ACCEPT".
 ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=("${(@)ZSH_AUTOSUGGEST_ACCEPT_WIDGETS:#forward-char}")
@@ -22,6 +24,8 @@ ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=(autosuggest_partial_charwise)
 
 # Keybinding for Alt+s prepend sudo
 bindkey -M emacs "^[s" sudo-command-line
+
+##
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -46,6 +50,7 @@ zstyle ':omz:update' frequency 13
 
 # Aliases
 alias c="clear"
+alias cl="clear"
 
 # IBM DB2
 if [ -f /home/cleff/sqllib/db2profile ]; then
