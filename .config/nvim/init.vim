@@ -13,7 +13,7 @@ call plug#begin()
 
 " Utilities
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
-Plug 'sbdchd/neoformat' " Formatter for many languages
+"Plug 'sbdchd/neoformat' " Formatter for many languages
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlight
 Plug 'nvim-treesitter/nvim-treesitter-context' " Sticky Header
 Plug 'preservim/nerdcommenter' " Comment Line
@@ -276,14 +276,15 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Resume latest coc list
 "nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+" COC Prettier Formatter
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Formatter
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
+" Neoformat Formatter
+"augroup fmt
+  "autocmd!
+  "autocmd BufWritePre * undojoin | Neoformat
+"augroup END
 
 " Neovide font
 set guifont=Hack\ Nerd\ Font\ Mono:h10

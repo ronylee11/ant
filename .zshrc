@@ -16,7 +16,7 @@ autosuggest_partial_charwise() {
     zle forward-char
 }
 
-zle -N autosuggest_partial_charwise 
+#zle -N autosuggest_partial_charwise 
 bindkey "${terminfo[kcuf1]}" autosuggest_partial_charwise
 
 # Add "autosuggest_partial_charwise" to "IGNORE".
@@ -51,11 +51,6 @@ zstyle ':omz:update' frequency 13
 # Aliases
 alias c="clear"
 alias cl="clear"
-
-# IBM DB2
-if [ -f /home/cleff/sqllib/db2profile ]; then
-    . /home/cleff/sqllib/db2profile
-fi
 
 # Import oh-my-zsh plugins
 plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting zsh-abbr)
