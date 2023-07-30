@@ -44,6 +44,7 @@
     "v": "open:vsplit"
   },
   //"java.jdt.ls.java.home": "/usr/lib/jvm/zulu-jdk-fx",
+  //"javascript.suggestionActions.enabled": false,
   "languageserver": {
     "bash": {
       "command": "bash-language-server",

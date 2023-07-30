@@ -13,7 +13,6 @@ call plug#begin()
 
 " Utilities
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition preview
-"Plug 'sbdchd/neoformat' " Formatter for many languages
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlight
 Plug 'nvim-treesitter/nvim-treesitter-context' " Sticky Header
 Plug 'preservim/nerdcommenter' " Comment Line
@@ -78,6 +77,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+" Enable to switch buffer without saving
+set hidden
 " set leader key to space
 let mapleader = ' '
 " Emmet
@@ -157,6 +158,8 @@ let g:coc_global_extensions = [
   \ 'coc-rainbow-fart',
   \ 'coc-flutter',
   \ 'coc-java',
+  \ 'coc-phpls',
+  \ '@yaegassy/coc-intelephense',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
@@ -260,32 +263,31 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
-"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
-"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
-"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " COC Prettier Formatter
 " prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Neoformat Formatter
-"augroup fmt
-  "autocmd!
-  "autocmd BufWritePre * undojoin | Neoformat
-"augroup END
-
+" COC Intelephense
+nmap <silent> ga <Plug>(coc-codeaction-line)
+xmap <silent> ga <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>aa <Plug>(coc-codeaction-cursor)
+nmap <silent> gA <Plug>(coc-codeaction)
 " Neovide font
 set guifont=Hack\ Nerd\ Font\ Mono:h10
 
@@ -318,6 +320,10 @@ let g:syntastic_check_on_wq = 0
 " Multiple-cursor
 let g:VM_mouse_mappings = 1"
 
-"" Load lua config files
+"Remove the How-to disable mouse menu item and the separator above it
+aunmenu PopUp.How-to\ disable\ mouse
+aunmenu PopUp.-1-
+
+" Load lua config files
 lua require("init")
 
