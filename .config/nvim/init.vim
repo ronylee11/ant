@@ -20,6 +20,7 @@ Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'mattn/emmet-vim' " Emmet
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multiple cursor
 Plug 'thosakwe/vim-flutter' " Flutter Hot Reload
+Plug 'lervag/vimtex' " LaTeX support
 " Good Practices
 Plug 'vim-syntastic/syntastic' " C++ Linter
 Plug 'mfussenegger/nvim-dap' " C++ Debugger
@@ -160,6 +161,7 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \ 'coc-phpls',
   \ '@yaegassy/coc-intelephense',
+  \ 'coc-vimtex',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
@@ -319,6 +321,48 @@ let g:syntastic_check_on_wq = 0
 
 " Multiple-cursor
 let g:VM_mouse_mappings = 1"
+
+" COC and Vimtex mapping of K
+nnoremap <silent> K :call <sid>show_documentation()<cr>
+function! s:show_documentation()
+    if index(['vim', 'help'], &filetype) >= 0
+        execute 'help ' . expand('<cword>')
+    elseif &filetype ==# 'tex'
+        VimtexDocPackage
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+" Vimtex Config
+" This is necessary for VimTeX to load properly. The "indent" is optional.
+" Note that most plugin managers will do this automatically.
+filetype plugin indent on
+
+" This enables Vim's and neovim's syntax-related features. Without this, some
+" VimTeX features will not work (see ":help vimtex-requirements" for more
+" info).
+syntax enable
+
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+" Note\: If the compiler or the viewer doesn't start properly, 
+" <localleader>li to view the system commands that were executed to start them
+" <localleader>lo to inspect the compiler output
+" <localleader>ll to start compile
+" <localleader>lk to stop compile
+" <localleader>lv to view pdf
+" <localleader>ls to stop view pdf
+" <localleader>lc to clean auxiliary files
+let maplocalleader = ","
 
 "Remove the How-to disable mouse menu item and the separator above it
 aunmenu PopUp.How-to\ disable\ mouse

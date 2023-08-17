@@ -73,6 +73,7 @@
   "rainbow-fart.locale": ["jp"],
   "rainbow-fart.voice-packages": ["$HOME/.local/share/yukino"],
   "rainbow-fart.disable-voice-packages": [],
+  "rainbow-fart.enabled": false,
   "snippets.ultisnips.pythonPrompt": false
   // TODO language servers
   // TODO g:coc_global_extensions
