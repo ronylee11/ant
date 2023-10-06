@@ -16,16 +16,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion and definition 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlight
 Plug 'nvim-treesitter/nvim-treesitter-context' " Sticky Header
 Plug 'preservim/nerdcommenter' " Comment Line
-Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'mattn/emmet-vim' " Emmet
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multiple cursor
 Plug 'thosakwe/vim-flutter' " Flutter Hot Reload
-Plug 'lervag/vimtex' " LaTeX support
 " Good Practices
 Plug 'vim-syntastic/syntastic' " C++ Linter
 Plug 'mfussenegger/nvim-dap' " C++ Debugger
 Plug 'maksimr/vim-jsbeautify' " JS Syntax
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+Plug 'lervag/vimtex' " LaTeX support
+Plug 'jwalton512/vim-blade' " Laravel Blade Syntax
 " Cool stuff
 Plug 'voldikss/vim-floaterm' " Floating Terminal
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " Markdown Preview, requires yarn and nodejs
@@ -34,6 +34,7 @@ Plug 'ThePrimeagen/vim-be-good' " Vim Exercise Game
 Plug 'wakatime/vim-wakatime' " Vim Wakatime, records ur coding time
 " Navigation
 Plug 'ronylee11/startup.nvim' " Startup page
+Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Telescope, :Files but with syntax highlighting
 Plug 'nvim-lua/plenary.nvim' " Dependencies for telescope
@@ -88,8 +89,8 @@ let g:user_emmet_leader_key='<C-Z>'
 " Force saving files that require root permission 
 cnoremap w!! w !sudo tee > /dev/null %
 " Auto Syntax Highlight .html file
-autocmd BufNewFile,BufRead *.html set filetype=html
-"autocmd BufNewFile,BufRead *.ejs,html set filetype=html
+"autocmd BufNewFile,BufRead *.html set filetype=html
+autocmd BufNewFile,BufRead *.ejs,html set filetype=html
 " Ag Searching Tool
 let g:ackprg = 'ag --nogroup --nocolor --column'
 " Telescope
@@ -162,6 +163,7 @@ let g:coc_global_extensions = [
   \ 'coc-phpls',
   \ '@yaegassy/coc-intelephense',
   \ 'coc-vimtex',
+  \ 'coc-lua',
   \ ]
 " from readme
 " if hidden is not set, TextEdit might fail.
