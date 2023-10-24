@@ -36,7 +36,7 @@ Plug 'wakatime/vim-wakatime' " Vim Wakatime, records ur coding time
 Plug 'ronylee11/startup.nvim' " Startup page
 Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
 Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' } " Telescope, :Files but with syntax highlighting
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' } " Telescope, :Files but with syntax highlighting
 Plug 'nvim-lua/plenary.nvim' " Dependencies for telescope
 Plug 'nvim-telescope/telescope-file-browser.nvim' " Telescope File Browser
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' } " Telescope fzf plugin
