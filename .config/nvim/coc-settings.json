@@ -7,6 +7,7 @@
     "method": "m",
     "function": "f"
   },
+  "suggest.noselect": true,
   // diagnostics
   "diagnostic.errorSign": "✗",
   "diagnostic.warningSign": "⚠",
@@ -43,7 +44,7 @@
     "<cr>": ["expandable?", "expand", "open"],
     "v": "open:vsplit"
   },
-  //"java.jdt.ls.java.home": "/usr/lib/jvm/zulu-jdk-fx",
+  "java.jdt.ls.java.home": "/usr/lib/jvm/zulu20.30.11-ca-fx-jdk20.0.1-linux_x64",
   //"javascript.suggestionActions.enabled": false,
   "languageserver": {
     "bash": {

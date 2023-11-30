@@ -152,7 +152,7 @@ let g:coc_global_extensions = [
   \ 'coc-json', 
   \ 'coc-pairs',
   \ 'coc-prettier', 
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-sh',
   \ 'coc-snippets',
   \ 'coc-tsserver@1.11.1',
@@ -209,7 +209,7 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
+" Use K to show documentation in preview window " do <c-w>w to navigate doc
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -369,6 +369,36 @@ let maplocalleader = ","
 "Remove the How-to disable mouse menu item and the separator above it
 aunmenu PopUp.How-to\ disable\ mouse
 aunmenu PopUp.-1-
+
+" Unbind arrow keys
+noremap <Up> <nop>
+inoremap <Up> <nop>
+noremap <Down> <nop>
+inoremap <Down> <nop>
+noremap <Left> <nop>
+inoremap <Left> <nop>
+noremap <Right> <nop>
+inoremap <Right> <nop>
+
+" Delete without yanking
+" Mess with default keybinds
+nnoremap d "_d
+vnoremap d "_d
+nnoremap s "_s
+vnoremap s "_s
+nnoremap S "_S
+vnoremap S "_S
+nnoremap x "_x
+vnoremap x "_x
+" Replace delete with yank
+nnoremap <leader>d d
+xnoremap <leader>d d
+nnoremap <leader>s s
+xnoremap <leader>s s
+nnoremap <leader>S S
+xnoremap <leader>S S
+nnoremap <leader>x x
+xnoremap <leader>x x
 
 " Load lua config files
 lua require("init")
