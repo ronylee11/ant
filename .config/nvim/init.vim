@@ -74,6 +74,7 @@ else
     Plug 'MunifTanjim/nui.nvim' " leetcode.nvim Dependencies
     Plug 'rcarriga/nvim-notify' " leetcode.nvim Dependencies
     Plug 'nvim-tree/nvim-web-devicons' " leetcode.nvim Dependencies
+    Plug 'folke/noice.nvim' " Wrap command line in floating window
     " Navigation
     Plug 'ronylee11/startup.nvim' " Startup page
     Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
@@ -336,7 +337,7 @@ else
     nmap <silent> <leader>aa <Plug>(coc-codeaction-cursor)
     nmap <silent> gA <Plug>(coc-codeaction)
     " Neovide font
-    set guifont=Hack\ Nerd\ Font\ Mono:h10
+    set guifont=Hack\ Nerd\ Font\ Mono:h14
 
     " Netrw config 
     let g:netrw_banner = 0

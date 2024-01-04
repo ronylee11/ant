@@ -4,9 +4,9 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use 'cocopon/iceberg.vim'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
+    use 'cocopon/iceberg.vim'
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
 end)
