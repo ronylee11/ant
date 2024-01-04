@@ -1,4 +1,4 @@
-set selection-clipboard clipboard
+#set selection-clipboard clipboard
 set window-height 768
 set window-width 1366
 

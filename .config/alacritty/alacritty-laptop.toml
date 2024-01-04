@@ -1,0 +1,89 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#5c6370"
+blue = "#7a96cc"
+cyan = "#7ab1cc"
+green = "#b1cc7a"
+magenta = "#b886d1"
+red = "#cc7a7a"
+white = "#f2e0ce"
+yellow = "#cca37a"
+
+[colors.normal]
+black = "#5c6370"
+blue = "#7a96cc"
+cyan = "#7ab1cc"
+green = "#b1cc7a"
+magenta = "#b886d1"
+red = "#cc7a7a"
+white = "#f2e0ce"
+yellow = "#cca37a"
+
+[colors.primary]
+background = "#17171C"
+foreground = "#f2f2e9"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 8.5
+
+[font.bold]
+family = "RobotoMono"
+style = "Bold"
+
+[font.bold_italic]
+family = "RobotoMono"
+style = "Bold Italic"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "RobotoMono"
+style = "Italic"
+
+[font.normal]
+family = "RobotoMono"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 5000
+multiplier = 10
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+opacity = 0.96
+startup_mode = "Windowed"
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 0
+lines = 0
+
+[window.padding]
+x = 25
+y = 29
+
+[window.position]
+x = 0
+y = 0
