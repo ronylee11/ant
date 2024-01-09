@@ -75,7 +75,8 @@
   "rainbow-fart.voice-packages": ["$HOME/.local/share/yukino"],
   "rainbow-fart.disable-voice-packages": [],
   "rainbow-fart.enabled": false,
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "coc.preferences.extensionUpdateCheck": "daily"
   // TODO language servers
   // TODO g:coc_global_extensions
   // TODO b:coc_suggest_disable=1 GOYO

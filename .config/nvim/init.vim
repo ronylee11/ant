@@ -2,15 +2,6 @@ if exists('g:vscode')
     " VSCode extension
     " set leader key to space
     let mapleader = ' '
-    " Unbind arrow keys
-    noremap <Up> <nop>
-    inoremap <Up> <nop>
-    noremap <Down> <nop>
-    inoremap <Down> <nop>
-    noremap <Left> <nop>
-    inoremap <Left> <nop>
-    noremap <Right> <nop>
-    inoremap <Right> <nop>
 
     " Delete without yanking
     " Mess with default keybinds
@@ -75,6 +66,8 @@ else
     Plug 'rcarriga/nvim-notify' " leetcode.nvim Dependencies
     Plug 'nvim-tree/nvim-web-devicons' " leetcode.nvim Dependencies
     Plug 'folke/noice.nvim' " Wrap command line in floating window
+    Plug 'epwalsh/obsidian.nvim' " Obsidian, note taking
+    Plug 'hrsh7th/nvim-cmp' " Obsidian Dependencies
     " Navigation
     Plug 'ronylee11/startup.nvim' " Startup page
     Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
@@ -363,7 +356,7 @@ else
     let g:syntastic_cpp_cpplint_exec = 'cpplint'
     " The following two lines are optional. Configure it to your liking!
     let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 0
+    let g:syntastic_check_on_wq = 1
 
     " Multiple-cursor
     let g:VM_mouse_mappings = 1"
@@ -413,16 +406,6 @@ else
     "Remove the How-to disable mouse menu item and the separator above it
     aunmenu PopUp.How-to\ disable\ mouse
     aunmenu PopUp.-1-
-
-    " Unbind arrow keys
-    noremap <Up> <nop>
-    inoremap <Up> <nop>
-    noremap <Down> <nop>
-    inoremap <Down> <nop>
-    noremap <Left> <nop>
-    inoremap <Left> <nop>
-    noremap <Right> <nop>
-    inoremap <Right> <nop>
 
     " Delete without yanking
     " Mess with default keybinds
