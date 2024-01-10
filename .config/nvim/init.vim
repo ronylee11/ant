@@ -438,6 +438,18 @@ else
     nnoremap <leader>ld :Leet desc<CR>
     nnoremap <leader>lm :Leet menu<CR>
 
+    " Jump to Tab
+    nnoremap <c-w>1 1gt
+    nnoremap <c-w>2 2gt
+    nnoremap <c-w>3 3gt
+    nnoremap <c-w>4 4gt
+    nnoremap <c-w>5 5gt
+    nnoremap <c-w>6 6gt
+    nnoremap <c-w>7 7gt
+    nnoremap <c-w>8 8gt
+    nnoremap <c-w>9 9gt
+    nnoremap <c-w>0 10gt
+
     " Load lua config files
     lua require("init")
 
