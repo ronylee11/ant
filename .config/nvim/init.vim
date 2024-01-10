@@ -68,6 +68,7 @@ else
     Plug 'folke/noice.nvim' " Wrap command line in floating window
     Plug 'epwalsh/obsidian.nvim' " Obsidian, note taking
     Plug 'hrsh7th/nvim-cmp' " Obsidian Dependencies
+    Plug 'folke/zen-mode.nvim' " Zen Mode, focus mode
     " Navigation
     Plug 'ronylee11/startup.nvim' " Startup page
     Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file

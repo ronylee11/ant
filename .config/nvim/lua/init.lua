@@ -20,3 +20,5 @@ require('plugins/gitsigns')
 require('plugins/noice')
 -- Obsidian
 require('plugins/obsidian')
+-- Zen-Mode
+require('plugins/zen-mode')
