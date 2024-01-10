@@ -101,6 +101,8 @@ else
     tnoremap <esc><esc> <c-\><c-n>
     " New Tab
     nmap <c-w>t :tabnew<cr> 
+    " Close Tab
+    nmap <c-w>x :tabclose<cr>
     " Switching Tabs
     map <C-Right> :tabn<cr>
     map <C-Left> :tabp<cr>
