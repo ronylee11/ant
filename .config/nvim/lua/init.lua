@@ -22,3 +22,5 @@ require('plugins/noice')
 require('plugins/obsidian')
 -- Zen-Mode
 require('plugins/zen-mode')
+-- GitContrib
+require('plugins/gitcontrib')
