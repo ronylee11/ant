@@ -205,6 +205,7 @@ else
                 \ '@yaegassy/coc-intelephense',
                 \ 'coc-vimtex',
                 \ 'coc-lua',
+                \ '@yaegassy/coc-laravel',
                 \ ]
     " from readme
     " if hidden is not set, TextEdit might fail.
