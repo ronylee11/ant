@@ -21,9 +21,7 @@ require("noice").setup({
                 padding = { 1, 2 },
             },
             filter_options = {},
-            win_options = {
-                winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-            },
+            win_options = {},
         },
     },
     routes = {
