@@ -17,8 +17,10 @@ require('plugins/leetcode')
 -- Gitsigns
 require('plugins/gitsigns')
 -- Noice
+--require('plugins/noice')
 -- Obsidian
-require('plugins/obsidian')
+--require('plugins/obsidian')
 -- Zen-Mode
 require('plugins/zen-mode')
 -- GitContrib
+--require('plugins/gitcontrib')

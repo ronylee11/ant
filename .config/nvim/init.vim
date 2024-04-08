@@ -65,15 +65,18 @@ else
     Plug 'MunifTanjim/nui.nvim' " leetcode.nvim Dependencies
     Plug 'rcarriga/nvim-notify' " leetcode.nvim Dependencies
     Plug 'nvim-tree/nvim-web-devicons' " leetcode.nvim Dependencies
-    Plug 'epwalsh/obsidian.nvim' " Obsidian, note taking
-    Plug 'hrsh7th/nvim-cmp' " Obsidian Dependencies
+    "Plug 'folke/noice.nvim' " Wrap command line in floating window
+    "Plug 'epwalsh/obsidian.nvim' " Obsidian, note taking
+    "Plug 'hrsh7th/nvim-cmp' " Obsidian Dependencies
     Plug 'folke/zen-mode.nvim' " Zen Mode, focus mode
+    "Plug 'ronylee11/gitcontrib.nvim' " show github contribution graph
+    "Plug '~/.github/gitcontrib.nvim'
     " Navigation
     Plug 'ronylee11/startup.nvim' " Startup page
     Plug 'christoomey/vim-tmux-navigator' " Navigate between tree and file
     Plug 'ThePrimeagen/harpoon' " Harpoon, alternate between files easily
     Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' } " Telescope, :Files but with syntax highlighting
-    Plug 'nvim-lua/plenary.nvim' " Dependencies for telescope
+    Plug 'nvim-lua/plenary.nvim', {'tag': 'v0.1.4'} " Dependencies for telescope
     Plug 'nvim-telescope/telescope-file-browser.nvim' " Telescope File Browser
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' } " Telescope fzf plugin
     Plug 'nvim-telescope/telescope-live-grep-args.nvim' " Telescope live grep args
