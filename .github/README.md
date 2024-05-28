@@ -27,6 +27,8 @@ Run the Install script
 
 ```
 git clone --depth 1 https://github.com/ronylee11/ant
+git submodule init
+git submodule update
 cd ant
 ./install.sh
 ```
