@@ -1,5 +1,3 @@
-# Tab for auto complete
-bindkey '\t' autosuggest-accept
 
 ## Bind right arrow key to forward-char like in fish
 
@@ -56,3 +54,6 @@ alias cl="clear"
 plugins=(git sudo zsh-autosuggestions zsh-syntax-highlighting zsh-abbr)
 
 source $ZSH/oh-my-zsh.sh
+
+# Tab for auto complete
+bindkey '^I'   autosuggest-accept
