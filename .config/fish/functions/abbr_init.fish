@@ -1,5 +1,6 @@
 function abbr_init --description 'Initializes abbreviations'
-    abbr -a -U -- p 'sudo pacman'
-    abbr -a -U -- s systemctl
-    abbr -a -U -- y yay
+    abbr -a -- y yay # imported from a universal variable, see `help abbr`
+    abbr -a -- p 'sudo pacman' # imported from a universal variable, see `help abbr`
+    abbr -a -- s systemctl # imported from a universal variable, see `help abbr`
+    abbr -a -- gc 'git clone'
 end
