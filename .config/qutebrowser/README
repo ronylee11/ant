@@ -1,0 +1,8 @@
+Run the following command to install qutebrowser catppuccin theme (not python-catppuccin)
+
+# Linux
+$ git clone https://github.com/catppuccin/qutebrowser.git ~/.config/qutebrowser/catppuccin
+# macOS
+$ git clone https://github.com/catppuccin/qutebrowser.git ~/.qutebrowser/catppuccin
+# windows
+$ git clone https://github.com/catppuccin/qutebrowser.git $LOCALAPPDATA/qutebrowser/config/catppuccin
