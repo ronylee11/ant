@@ -15,3 +15,6 @@ cp $SCRIPT_DIR/.zshrc ~
 mkdir -p $SCRIPT_DIR/temp
 git clone https://github.com/oh-my-fish/oh-my-fish.git $SCRIPT_DIR/temp/oh-my-fish
 $SCRIPT_DIR/temp/oh-my-fish/bin/install --offline
+omf install fishbone
+omf install agnoster
+omf cd && cp $SCRIPT_DIR/misc/fish_greeting.fish themes/fishbone/functions/
