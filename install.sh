@@ -16,4 +16,4 @@ mkdir -p $SCRIPT_DIR/temp
 git clone https://github.com/oh-my-fish/oh-my-fish.git $SCRIPT_DIR/temp/oh-my-fish
 $SCRIPT_DIR/temp/oh-my-fish/bin/install --offline
 rm -rf $SCRIPT_DIR/temp
-fish $SCRIPT_DIR/update_fishbone.fish
+fish $SCRIPT_DIR/.misc/update_fishbone.fish
