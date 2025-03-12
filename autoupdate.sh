@@ -11,3 +11,4 @@ cp ~/.config/qutebrowser/config.py $SCRIPT_DIR/.config/qutebrowser
 cp -r ~/.config/qutebrowser/greasemonkey $SCRIPT_DIR/.config/qutebrowser
 cp ~/.config/qutebrowser/quickmarks $SCRIPT_DIR/.config/qutebrowser
 cp ~/.zshrc $SCRIPT_DIR
+cp -r ~/.config/nvim/* $SCRIPT_DIR/.config/nvim
