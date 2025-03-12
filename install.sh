@@ -10,6 +10,8 @@ if [ ! -d "$TPM" ]; then
     mkdir -p ~/.tmux
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+mkdir -p ~/.fonts
+cp -r $SCRIPT_DIR/.fonts/* ~/.fonts
 cp $SCRIPT_DIR/.tmux/iceberg_minimal.tmux.conf ~/.tmux/iceberg_minimal.tmux.conf
 cp $SCRIPT_DIR/.zshrc ~
 mkdir -p $SCRIPT_DIR/temp
