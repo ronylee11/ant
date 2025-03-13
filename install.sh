@@ -2,7 +2,7 @@
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";
 TPM=$HOME/.tmux/plugins/tpm
 
-# check if executables exist (node, npm, cmake, make, gcc, python3, python)
+# check if executables exist (node, npm, cmake, make, gcc, python3, python, bash-language-server)
 if ! command -v node &> /dev/null
 then
     echo "node could not be found"
@@ -36,6 +36,11 @@ fi
 if ! command -v python &> /dev/null
 then
     echo "python could not be found"
+    exit
+fi
+if ! command -v bash-language-server &> /dev/null
+then
+    echo "bash-language-server could not be found"
     exit
 fi
 
