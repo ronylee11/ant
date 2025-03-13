@@ -2,6 +2,43 @@
 SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";
 TPM=$HOME/.tmux/plugins/tpm
 
+# check if executables exist (node, npm, cmake, make, gcc, python3, python)
+if ! command -v node &> /dev/null
+then
+    echo "node could not be found"
+    exit
+fi
+if ! command -v npm &> /dev/null
+then
+    echo "npm could not be found"
+    exit
+fi
+if ! command -v cmake &> /dev/null
+then
+    echo "cmake could not be found"
+    exit
+fi
+if ! command -v make &> /dev/null
+then
+    echo "make could not be found"
+    exit
+fi
+if ! command -v gcc &> /dev/null
+then
+    echo "gcc could not be found"
+    exit
+fi
+if ! command -v python3 &> /dev/null
+then
+    echo "python3 could not be found"
+    exit
+fi
+if ! command -v python &> /dev/null
+then
+    echo "python could not be found"
+    exit
+fi
+
 git submodule init
 git submodule update
 cp -r $SCRIPT_DIR/.config ~
