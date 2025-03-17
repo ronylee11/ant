@@ -31,14 +31,14 @@ foreground = "#f2f2e9"
 TERM = "xterm-256color"
 
 [font]
-size = 13.5
+size = 16.0
 
 [font.bold]
-family = "RobotoMono"
+family = "Roboto Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "RobotoMono"
+family = "Roboto Mono"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -46,11 +46,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "RobotoMono"
+family = "Roboto Mono"
 style = "Italic"
 
 [font.normal]
-family = "RobotoMono"
+family = "Roboto Mono"
 style = "Regular"
 
 [font.offset]
@@ -66,11 +66,12 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-decorations = "none"
+decorations = "Transparent"
 dynamic_padding = true
 opacity = 0.96
 startup_mode = "Windowed"
 title = "Alacritty"
+option_as_alt = "OnlyLeft" # macos only
 
 [window.class]
 general = "Alacritty"
@@ -85,5 +86,5 @@ x = 25
 y = 29
 
 [window.position]
-x = 0
-y = 0
+x = 50
+y = 50
