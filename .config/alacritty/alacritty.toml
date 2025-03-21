@@ -34,11 +34,11 @@ TERM = "xterm-256color"
 size = 16.0
 
 [font.bold]
-family = "Roboto Mono"
+family = "Maple Mono NF"
 style = "Bold"
 
 [font.bold_italic]
-family = "Roboto Mono"
+family = "Maple Mono NF"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -46,11 +46,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "Roboto Mono"
+family = "Maple Mono NF"
 style = "Italic"
 
 [font.normal]
-family = "Roboto Mono"
+family = "Maple Mono NF"
 style = "Regular"
 
 [font.offset]
