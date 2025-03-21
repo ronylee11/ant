@@ -5,14 +5,16 @@ aka. my "workspace" setup
 
 # Screenshot
 
-Picture of alacritty with tmux session
-![Alt text](./assets/alacritty+tmux-showcase.png)
-Picture of nvim with NERDTree and Floaterm (Gruvbox Theme)
-![Alt text](./assets/gruvbox-showcase.png)
-Picture of nvim with NERDTree and Floaterm (Catppucin Theme)
-![Alt text](./assets/catppucin-showcase.png)
+Picture of nvim with Netrw and Floaterm (Iceberg Theme on MacOS, with Italic support)
+![Alt text](./assets/mac-display.png)
 Picture of nvim with NERDTree and Floaterm (Iceberg Theme)
 ![Alt text](./assets/iceberg-showcase.jpg)
+Picture of nvim with NERDTree and Floaterm (Catppucin Theme)
+![Alt text](./assets/catppucin-showcase.png)
+Picture of nvim with NERDTree and Floaterm (Gruvbox Theme)
+![Alt text](./assets/gruvbox-showcase.png)
+Picture of alacritty with tmux session
+![Alt text](./assets/alacritty+tmux-showcase.png)
 
 # Installation
 
